@@ -44,7 +44,9 @@ public final class SketchActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    this.title = "#${this.genome.kind.id}: ${this.genome.kind.label}"
+    this.title = this.genome.kind.seed.let {
+      "#${it.id}: ${it.title}"
+    }
 
     this.binding.containerView.doOnLayout { view ->
       val fragment = PFragment().also {
