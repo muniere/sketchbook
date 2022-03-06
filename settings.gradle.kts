@@ -24,4 +24,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "sketchbook"
-include(":app")
+
+include(
+  ":app",
+  ":lib",
+)

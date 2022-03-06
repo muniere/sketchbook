@@ -4,17 +4,20 @@ plugins {
 }
 
 android {
-  compileSdk = 32
+  compileSdk = 31
 
   defaultConfig {
     applicationId = "net.muniere.sketchbook"
     minSdk = 30
-    targetSdk = 32
+    targetSdk = 31
     versionCode = 1
     versionName = "1.0.0"
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
+  buildFeatures {
+    viewBinding = true
+  }
   buildTypes {
     release {
       isMinifyEnabled = false
@@ -31,8 +34,9 @@ android {
 }
 
 dependencies {
+  implementation(project(":lib"))
+
   implementation("androidx.core:core-ktx:1.7.0")
-  implementation("androidx.appcompat:appcompat:1.4.1")
+  implementation("androidx.fragment:fragment-ktx:1.4.1")
   implementation("com.google.android.material:material:1.5.0")
-  implementation("androidx.constraintlayout:constraintlayout:2.1.3")
 }
