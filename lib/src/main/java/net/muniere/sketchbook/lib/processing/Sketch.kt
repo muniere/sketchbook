@@ -1,11 +1,11 @@
 package net.muniere.sketchbook.lib.processing
 
-import android.util.Size
+import net.muniere.sketchbook.lib.graphics.Size2D
 import processing.core.PApplet
 import processing.core.PConstants
 
 public open class Sketch(
-  protected val size: Size,
+  protected val size: Size2D,
 ) : PApplet() {
 
   public enum class Renderer(
@@ -19,6 +19,6 @@ public open class Sketch(
     get() = Renderer.P2D
 
   override fun settings() {
-    this.size(this.size.width, this.size.height, this.renderer.rawValue)
+    this.size(this.size.width.toInt(), this.size.height.toInt(), this.renderer.rawValue)
   }
 }

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnLayout
 import net.muniere.sketchbook.databinding.SketchActivityBinding
 import net.muniere.sketchbook.lib.app.viewBinding
-import net.muniere.sketchbook.lib.view.size
+import net.muniere.sketchbook.lib.graphics.Size2D
 import processing.android.PFragment
 
 public final class SketchActivity : AppCompatActivity() {
@@ -50,7 +50,10 @@ public final class SketchActivity : AppCompatActivity() {
       val fragment = PFragment().also {
         it.sketch = Sketches.create(
           kind = this.genome.kind,
-          size = view.size,
+          size = Size2D(
+            width = view.width.toFloat(),
+            height = view.height.toFloat(),
+          )
         )
       }
 
