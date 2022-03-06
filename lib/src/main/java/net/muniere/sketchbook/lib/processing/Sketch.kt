@@ -15,6 +15,13 @@ public open class Sketch(
     P3D(PConstants.P3D),
   }
 
+  public enum class ShapeMode(
+    public val rawValue: Int
+  ) {
+    OPEN(PConstants.OPEN),
+    CLOSED(PConstants.CLOSE),
+  }
+
   protected open val renderer: Renderer
     get() = Renderer.P2D
 
