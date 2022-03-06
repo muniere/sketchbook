@@ -1,9 +1,10 @@
 package net.muniere.sketchbook
 
 public enum class SketchKind(
-  public val rawValue: Int
+  public val rawValue: Int,
 ) {
-  EXAMPLE(0);
+  EXAMPLE(0),
+  STAR_FIELD(1);
 
   public val seed: SketchSeed
     get() = when (this) {
@@ -11,6 +12,11 @@ public enum class SketchKind(
         kind = this,
         title = "Example",
         caption = "Example",
+      )
+      STAR_FIELD -> SketchSeed(
+        kind = this,
+        title = "Star Field",
+        caption = "Star Field",
       )
     }
 }
