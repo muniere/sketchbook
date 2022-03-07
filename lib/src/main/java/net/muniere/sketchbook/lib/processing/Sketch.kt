@@ -16,7 +16,7 @@ public open class Sketch(
   }
 
   public enum class ShapeMode(
-    public val rawValue: Int
+    public val rawValue: Int,
   ) {
     OPEN(PConstants.OPEN),
     CLOSED(PConstants.CLOSE),
@@ -25,7 +25,32 @@ public open class Sketch(
   protected open val renderer: Renderer
     get() = Renderer.P2D
 
-  override fun settings() {
+  private var plugins: List<Plugin> = emptyList()
+
+  final override fun settings() {
     this.size(this.size.width.toInt(), this.size.height.toInt(), this.renderer.rawValue)
+  }
+
+  protected open fun configure(): List<Plugin> {
+    return emptyList()
+  }
+
+  final override fun setup() {
+    this.plugins = this.configure()
+    this.doSetup()
+  }
+
+  protected open fun doSetup() {
+    // do nothing
+  }
+
+  final override fun draw() {
+    this.plugins.forEach { it.onPreDraw(this) }
+    this.doDraw()
+    this.plugins.forEach { it.onPostDraw(this) }
+  }
+
+  protected open fun doDraw() {
+    // do nothing
   }
 }

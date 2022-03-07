@@ -21,11 +21,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   override val renderer: Renderer
     get() = Renderer.P3D
 
-  override fun settings() {
-    this.size(this.size.width.toInt(), this.size.height.toInt(), this.renderer.rawValue)
-  }
-
-  override fun setup() {
+  override fun doSetup() {
     this.model = ApplicationModel(
       sponge = SpongeModel(
         size = Params.SPONGE_SIZE,
@@ -40,7 +36,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     }
   }
 
-  override fun draw() {
+  override fun doDraw() {
     // canvas
     this.g.background(Params.CANVAS_COLOR)
     this.g.translate(this.width/2.0F, this.height/2.0F)

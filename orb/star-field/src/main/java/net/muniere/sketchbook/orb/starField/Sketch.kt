@@ -5,6 +5,7 @@ import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.map
+import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.Sketch
 import net.muniere.sketchbook.lib.processing.background
 
@@ -21,7 +22,11 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   private lateinit var model: ApplicationModel
   private lateinit var widget: ApplicationWidget
 
-  override fun setup() {
+  override fun configure() = listOf(
+    MetricsPlugin(this.g)
+  )
+
+  override fun doSetup() {
     this.model = ApplicationModel(
       stars = List(Params.STAR_COUNT) {
         StarModel(
@@ -40,7 +45,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     }
   }
 
-  override fun draw() {
+  override fun doDraw() {
     this.g.background(Params.CANVAS_COLOR)
     this.widget.draw()
     this.model.update()

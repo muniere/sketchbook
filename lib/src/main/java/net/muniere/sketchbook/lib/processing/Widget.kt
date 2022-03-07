@@ -3,7 +3,7 @@ package net.muniere.sketchbook.lib.processing
 import processing.core.PGraphics
 
 public abstract class Widget(
-  protected val g: PGraphics
+  protected val g: PGraphics,
 ) {
 
   public abstract fun draw()
