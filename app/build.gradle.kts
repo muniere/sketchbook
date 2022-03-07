@@ -38,6 +38,7 @@ dependencies {
   implementation(project(":lib"))
   implementation(project(":orb:star-field"))
   implementation(project(":orb:menger-sponge"))
+  implementation(project(":orb:purple-rain"))
 
   implementation("androidx.core:core-ktx:1.7.0")
   implementation("androidx.fragment:fragment-ktx:1.4.1")

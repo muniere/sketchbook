@@ -4,6 +4,7 @@ import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.Sketch
 import net.muniere.sketchbook.orb.mengerSponge.Sketch as MengerSpongeSketch
 import net.muniere.sketchbook.orb.starField.Sketch as StarFieldSketch
+import net.muniere.sketchbook.orb.purpleRain.Sketch as PurpleRainSketch
 
 public final object Sketches {
 
@@ -11,6 +12,7 @@ public final object Sketches {
     return when (kind) {
       SketchKind.STAR_FIELD -> StarFieldSketch(size)
       SketchKind.MENGER_SPONGE -> MengerSpongeSketch(size)
+      SketchKind.PURPLE_RAIN -> PurpleRainSketch(size)
     }
   }
 }

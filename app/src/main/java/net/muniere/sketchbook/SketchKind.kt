@@ -4,7 +4,9 @@ public enum class SketchKind(
   public val rawValue: Int,
 ) {
   STAR_FIELD(1),
-  MENGER_SPONGE(2),;
+  MENGER_SPONGE(2),
+  PURPLE_RAIN(4),
+  ;
 
   public val seed: SketchSeed
     get() = when (this) {
@@ -17,6 +19,11 @@ public enum class SketchKind(
         kind = this,
         title = "Menger Sponge",
         caption = "Menger Sponge",
+      )
+      PURPLE_RAIN -> SketchSeed(
+        kind = this,
+        title = "Purple Rain",
+        caption = "Purple Rain",
       )
     }
 }
