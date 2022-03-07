@@ -28,5 +28,6 @@ rootProject.name = "sketchbook"
 include(
   ":app",
   ":orb:star-field",
+  ":orb:menger-sponge",
   ":lib",
 )
