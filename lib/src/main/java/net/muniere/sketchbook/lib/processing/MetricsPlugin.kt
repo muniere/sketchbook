@@ -22,7 +22,7 @@ public final class MetricsPlugin(graphic: PGraphics) : Plugin {
       return this.widget.alignment
     }
     set(value) {
-      this.widget.alignment
+      this.widget.alignment = value
     }
 
   public var textColor: Color
