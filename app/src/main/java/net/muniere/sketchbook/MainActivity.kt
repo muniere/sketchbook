@@ -32,7 +32,7 @@ public final class MainActivity : AppCompatActivity() {
 
   private fun startSketchActivity(seed: SketchSeed) {
     val intent = Intent(this, SketchActivity::class.java).also {
-      it.putExtras(SketchActivity.Genome(seed.kind).toBundle())
+      it.putExtras(SketchActivity.Genome(seed.id).toBundle())
     }
     this.startActivity(intent)
   }

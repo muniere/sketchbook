@@ -15,20 +15,20 @@ public final class SketchActivity : AppCompatActivity() {
   // Genome
   //
   public final class Genome(
-    public val kind: SketchKind,
+    public val id: Int,
   ) {
     private enum class Keys {
-      KIND,
+      ID,
     }
 
     companion object {
       public fun from(intent: Intent) = Genome(
-        kind = intent.getStringExtra(Keys.KIND.name).let(::checkNotNull).let(SketchKind::valueOf)
+        id = intent.getIntExtra(Keys.ID.name, 0),
       )
     }
 
     public fun toBundle() = Bundle().also {
-      it.putString(Keys.KIND.name, this.kind.name)
+      it.putInt(Keys.ID.name, this.id)
     }
   }
 
@@ -44,19 +44,18 @@ public final class SketchActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    this.title = this.genome.kind.seed.let {
-      "#${it.id}: ${it.title}"
-    }
+    val seed = SketchSeed.values().first { it.id == this.genome.id }
+
+    this.title = SketchFormat.format(seed)
 
     this.binding.containerView.doOnLayout { view ->
+      val size = Size2D(
+        width = view.width.toFloat(),
+        height = view.height.toFloat(),
+      )
+
       val fragment = PFragment().also {
-        it.sketch = Sketches.create(
-          kind = this.genome.kind,
-          size = Size2D(
-            width = view.width.toFloat(),
-            height = view.height.toFloat(),
-          )
-        )
+        it.sketch = seed.inflate(size)
       }
 
       this.supportFragmentManager

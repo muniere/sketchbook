@@ -17,7 +17,7 @@ public final class MainController : EpoxyController() {
   override fun buildModels() {
     val ctrl = this
 
-    SketchKind.values().map { it.seed }.forEach { seed ->
+    SketchSeed.values().forEach { seed ->
       ctrl.sketchTile {
         id(seed.id)
         seed(seed)

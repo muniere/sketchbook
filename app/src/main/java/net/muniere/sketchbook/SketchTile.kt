@@ -25,7 +25,7 @@ public final class SketchTile : ConstraintLayout {
 
   @set:ModelProp
   public var seed: SketchSeed? by Delegates.observable(null) { _, _, newValue ->
-    this.binding.titleLabel.text = newValue?.let { "#${it.id}: ${it.title}" }
+    this.binding.titleLabel.text = newValue?.let(SketchFormat::format)
     this.binding.captionLabel.text = newValue?.caption
   }
 
