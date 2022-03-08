@@ -22,11 +22,21 @@ public final data class Point2D(
     )
   }
 
+  public fun add(delta: Move2D) {
+    this.x += delta.x
+    this.y += delta.y
+  }
+
   public operator fun minus(delta: Move2D): Point2D {
     return Point2D(
       x = this.x - delta.x,
       y = this.y - delta.y,
     )
+  }
+
+  public fun sub(delta: Move2D) {
+    this.x -= delta.x
+    this.y -= delta.y
   }
 
   public fun assign(other: Point2D) {

@@ -16,6 +16,11 @@ public final data class Size2D(
     )
   }
 
+  public fun add(delta: Size2D) {
+    this.width += delta.width
+    this.height += delta.height
+  }
+
   public operator fun minus(delta: Size2D): Size2D {
     return Size2D(
       width = this.width - delta.width,
@@ -23,11 +28,21 @@ public final data class Size2D(
     )
   }
 
+  public fun sub(delta: Size2D) {
+    this.width -= delta.width
+    this.height -= delta.height
+  }
+
   public operator fun times(value: Float): Size2D {
     return Size2D(
       width = this.width * value,
       height = this.height * value,
     )
+  }
+
+  public fun mult(value: Float) {
+    this.width *= value
+    this.height *= value
   }
 
   public fun assign(other: Size2D) {

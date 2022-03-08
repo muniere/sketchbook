@@ -18,6 +18,12 @@ public final data class Size3D(
     )
   }
 
+  public fun add(delta: Size3D) {
+    this.width += delta.width
+    this.height += delta.height
+    this.depth += delta.depth
+  }
+
   public operator fun minus(delta: Size3D): Size3D {
     return Size3D(
       width = this.width - delta.width,
@@ -26,12 +32,24 @@ public final data class Size3D(
     )
   }
 
+  public fun sub(delta: Size3D) {
+    this.width -= delta.width
+    this.height -= delta.height
+    this.depth -= delta.depth
+  }
+
   public operator fun times(value: Float): Size3D {
     return Size3D(
       width = this.width * value,
       height = this.height * value,
       depth = this.depth * value,
     )
+  }
+
+  public fun mult(value: Float) {
+    this.width *= value
+    this.height *= value
+    this.depth *= value
   }
 
   public fun assign(other: Size3D) {

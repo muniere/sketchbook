@@ -24,12 +24,24 @@ public final data class Point3D(
     )
   }
 
+  public fun add(delta: Move3D) {
+    this.x += delta.x
+    this.y += delta.y
+    this.z += delta.z
+  }
+
   public operator fun minus(delta: Move3D): Point3D {
     return Point3D(
       x = this.x - delta.x,
       y = this.y - delta.y,
       z = this.z - delta.z,
     )
+  }
+
+  public fun sub(delta: Move3D) {
+    this.x -= delta.x
+    this.y -= delta.y
+    this.z -= delta.z
   }
 
   public fun assign(other: Point3D) {
