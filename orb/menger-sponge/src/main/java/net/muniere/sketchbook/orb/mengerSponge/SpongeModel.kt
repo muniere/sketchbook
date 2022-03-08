@@ -3,7 +3,7 @@ package net.muniere.sketchbook.orb.mengerSponge
 import android.graphics.Color
 import net.muniere.sketchbook.lib.graphics.Point3D
 
-public final class SpongeModel(
+internal final class SpongeModel(
   size: Float,
 ) {
   public var strokeColor = Color.valueOf(0xFFFFFF)

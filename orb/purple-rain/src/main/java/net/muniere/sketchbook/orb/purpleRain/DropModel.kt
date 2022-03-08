@@ -6,7 +6,7 @@ import net.muniere.sketchbook.lib.map
 import net.muniere.sketchbook.lib.physics.Acceleration3D
 import net.muniere.sketchbook.lib.physics.Velocity3D
 
-public final class DropModel(
+internal final class DropModel(
   public val origin: Point3D,
   public val length: Float,
 ) {

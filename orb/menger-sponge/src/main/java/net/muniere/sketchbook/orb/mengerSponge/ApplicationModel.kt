@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.mengerSponge
 
-public final class ApplicationModel(
+internal final class ApplicationModel(
   public val sponge: SpongeModel,
 ) {
   public fun update() {

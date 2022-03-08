@@ -3,7 +3,7 @@ package net.muniere.sketchbook.orb.mengerSponge
 import net.muniere.sketchbook.lib.processing.ModelWidget
 import processing.core.PGraphics
 
-public final class ApplicationWidget(graphics: PGraphics) : ModelWidget<ApplicationModel>(graphics) {
+internal final class ApplicationWidget(graphics: PGraphics) : ModelWidget<ApplicationModel>(graphics) {
   private val sponge: SpongeWidget = SpongeWidget(graphics)
 
   override fun doDraw(model: ApplicationModel) {

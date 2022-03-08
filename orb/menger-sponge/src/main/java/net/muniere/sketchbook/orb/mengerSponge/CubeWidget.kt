@@ -4,7 +4,7 @@ import net.muniere.sketchbook.lib.processing.ModelWidget
 import net.muniere.sketchbook.lib.processing.fill
 import processing.core.PGraphics
 
-public final class CubeWidget(graphics: PGraphics) : ModelWidget<CubeModel>(graphics) {
+internal final class CubeWidget(graphics: PGraphics) : ModelWidget<CubeModel>(graphics) {
 
   override fun doDraw(model: CubeModel) {
     this.scope {

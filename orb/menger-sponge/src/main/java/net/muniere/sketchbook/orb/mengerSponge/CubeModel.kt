@@ -4,7 +4,7 @@ import android.graphics.Color
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.product
 
-public final class CubeModel(
+internal final class CubeModel(
   public val size: Float,
   public val center: Point3D,
 ) {

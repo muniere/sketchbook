@@ -3,7 +3,7 @@ package net.muniere.sketchbook.orb.purpleRain
 import net.muniere.sketchbook.lib.processing.ModelWidget
 import processing.core.PGraphics
 
-public final class DropWidget(
+internal final class DropWidget(
   graphic: PGraphics,
 ) : ModelWidget<DropModel>(graphic) {
 

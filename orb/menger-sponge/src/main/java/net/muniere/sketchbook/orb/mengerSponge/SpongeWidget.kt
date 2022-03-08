@@ -4,7 +4,7 @@ import net.muniere.sketchbook.lib.processing.ModelWidget
 import net.muniere.sketchbook.lib.processing.stroke
 import processing.core.PGraphics
 
-public final class SpongeWidget(graphics: PGraphics) : ModelWidget<SpongeModel>(graphics) {
+internal final class SpongeWidget(graphics: PGraphics) : ModelWidget<SpongeModel>(graphics) {
   private val cube: CubeWidget = CubeWidget(graphics)
 
   override fun doDraw(model: SpongeModel) {

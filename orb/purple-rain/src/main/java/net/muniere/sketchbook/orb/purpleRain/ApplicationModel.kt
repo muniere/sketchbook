@@ -4,7 +4,7 @@ import android.graphics.Color
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 
-public final class ApplicationModel(
+internal final class ApplicationModel(
   public val frame: Rect2D,
   public val drops: List<DropModel>,
 ) {
