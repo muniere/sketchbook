@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.mengerSponge
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.graphics.Move3D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.product
 
@@ -17,7 +18,7 @@ internal final class CubeModel(
       }
 
       val newSize = this.size / 3.0F
-      val newCenter = this.center.plus(
+      val newCenter = this.center + Move3D(
         x = x * newSize,
         y = y * newSize,
         z = z * newSize,

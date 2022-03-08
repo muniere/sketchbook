@@ -1,20 +1,20 @@
 package net.muniere.sketchbook.lib.physics
 
+import net.muniere.sketchbook.lib.graphics.Move2D
 import processing.core.PVector
 
 public final class Velocity2D(
   x: Float,
   y: Float,
-  z: Float,
 ) {
 
-  public constructor(vector: PVector) : this(vector.x, vector.y, vector.z)
+  public constructor(vector: PVector) : this(vector.x, vector.y)
 
   public companion object {
-    public fun zero() = Velocity2D(0.0F, 0.0F, 0.0F)
+    public fun zero() = Velocity2D(0.0F, 0.0F)
   }
 
-  private val vector = PVector(x, y, z)
+  private val vector = PVector(x, y, 0.0F)
 
   public val x: Float
     get() = this.vector.x
@@ -22,8 +22,9 @@ public final class Velocity2D(
   public val y: Float
     get() = this.vector.y
 
-  public val z: Float
-    get() = this.vector.z
+  public fun toMove(): Move2D {
+    return Move2D(this.x, this.y)
+  }
 
   public fun toVector(): PVector {
     return this.vector.copy()

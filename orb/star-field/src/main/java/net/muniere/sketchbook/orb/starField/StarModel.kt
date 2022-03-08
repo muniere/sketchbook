@@ -27,7 +27,7 @@ internal final class StarModel(
     }
 
   public fun update() {
-    this.center.minusAssign(z = this.speed)
+    this.center.z -= this.speed
 
     if (this.center.z < 0.01) {
       this.reset()
@@ -35,6 +35,6 @@ internal final class StarModel(
   }
 
   public fun reset() {
-    this.center.assign(z = this.origin.z)
+    this.center.z = this.origin.z
   }
 }

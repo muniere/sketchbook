@@ -1,5 +1,6 @@
 package net.muniere.sketchbook.lib.physics
 
+import net.muniere.sketchbook.lib.graphics.Move3D
 import processing.core.PVector
 
 public final class Velocity3D(
@@ -24,6 +25,10 @@ public final class Velocity3D(
 
   public val z: Float
     get() = this.vector.z
+
+  public fun toMove(): Move3D {
+    return Move3D(this.x, this.y, this.z)
+  }
 
   public fun toVector(): PVector {
     return this.vector.copy()

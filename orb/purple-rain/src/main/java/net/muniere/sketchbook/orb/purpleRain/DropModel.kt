@@ -27,7 +27,7 @@ internal final class DropModel(
       z = 0.0F,
     )
 
-    this.point.plusAssign(y = this.velocity.y)
+    this.point.y += this.velocity.y
     this.velocity.plusAssign(accel)
   }
 
