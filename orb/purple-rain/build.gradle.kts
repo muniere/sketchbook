@@ -12,7 +12,7 @@ android {
   }
 
   buildFeatures {
-    viewBinding = true
+    buildConfig = false
   }
   buildTypes {
     release {

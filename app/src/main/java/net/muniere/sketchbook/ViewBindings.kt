@@ -1,4 +1,4 @@
-package net.muniere.sketchbook.lib.app
+package net.muniere.sketchbook
 
 import android.app.Activity
 import android.view.LayoutInflater

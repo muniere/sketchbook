@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.muniere.sketchbook.databinding.MainActivityBinding
-import net.muniere.sketchbook.lib.app.viewBinding
 
 public final class MainActivity : AppCompatActivity() {
 

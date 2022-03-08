@@ -9,17 +9,14 @@ android {
   defaultConfig {
     minSdk = 30
     targetSdk = 31
-
-    consumerProguardFiles("consumer-rules.pro")
   }
 
   buildFeatures {
-    viewBinding = true
+    buildConfig = false
   }
   buildTypes {
     release {
       isMinifyEnabled = false
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
   compileOptions {

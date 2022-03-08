@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnLayout
 import net.muniere.sketchbook.databinding.SketchActivityBinding
-import net.muniere.sketchbook.lib.app.viewBinding
 import net.muniere.sketchbook.lib.graphics.Size2D
 import processing.android.PFragment
 
