@@ -30,5 +30,6 @@ include(
   ":orb:star-field",
   ":orb:menger-sponge",
   ":orb:purple-rain",
+  ":orb:fireworks",
   ":lib",
 )

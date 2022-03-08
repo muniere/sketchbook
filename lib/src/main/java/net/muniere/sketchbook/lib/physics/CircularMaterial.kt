@@ -5,7 +5,18 @@ import net.muniere.sketchbook.lib.graphics.Rect2D
 
 public open class CircularMaterial(
   public var radius: Float,
+  mass: Float = 1.0F,
+  center: Point2D = Point2D.zero(),
+  velocity: Velocity2D = Velocity2D.zero(),
+  acceleration: Acceleration2D = Acceleration2D.zero(),
 ) : Material() {
+
+  init {
+    this.mass = mass
+    this.center = center
+    this.velocity = velocity
+    this.acceleration = acceleration
+  }
 
   override val top: Float
     get() = this.center.y - this.radius
