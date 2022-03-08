@@ -38,7 +38,7 @@ public final class Velocity3D(
     return Velocity3D(this.vector.copy().add(delta.toVector()))
   }
 
-  public operator fun plusAssign(delta: Acceleration3D) {
+  public fun add(delta: Acceleration3D) {
     this.vector.add(delta.toVector())
   }
 
@@ -46,31 +46,31 @@ public final class Velocity3D(
     return Velocity3D(this.vector.copy().sub(delta.toVector()))
   }
 
-  public operator fun minusAssign(delta: Acceleration3D) {
+  public fun sub(delta: Acceleration3D) {
     this.vector.sub(delta.toVector())
   }
 
-  public fun rotate(angle: Float): Velocity3D {
+  public fun rotating(angle: Float): Velocity3D {
     return Velocity3D(this.vector.copy().rotate(angle))
   }
 
-  public fun rotateAssign(angle: Float) {
+  public fun rotate(angle: Float) {
     this.vector.rotate(angle)
   }
 
-  public fun limit(magnitude: Float): Velocity3D {
+  public fun limiting(magnitude: Float): Velocity3D {
     return Velocity3D(this.vector.copy().limit(magnitude))
   }
 
-  public fun limitAssign(magnitude: Float) {
+  public fun limit(magnitude: Float) {
     this.vector.limit(magnitude)
   }
 
-  public fun normalize(): Velocity3D {
+  public fun normalized(): Velocity3D {
     return Velocity3D(this.vector.copy().normalize())
   }
 
-  public fun normalizeAssign() {
+  public fun normalize() {
     this.vector.normalize()
   }
 

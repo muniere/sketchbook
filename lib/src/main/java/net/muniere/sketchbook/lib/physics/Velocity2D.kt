@@ -34,7 +34,7 @@ public final class Velocity2D(
     return Velocity2D(this.vector.copy().add(delta.toVector()))
   }
 
-  public operator fun plusAssign(delta: Acceleration2D) {
+  public fun add(delta: Acceleration2D) {
     this.vector.add(delta.toVector())
   }
 
@@ -42,31 +42,31 @@ public final class Velocity2D(
     return Velocity2D(this.vector.copy().sub(delta.toVector()))
   }
 
-  public operator fun minusAssign(delta: Acceleration2D) {
+  public fun sub(delta: Acceleration2D) {
     this.vector.sub(delta.toVector())
   }
 
-  public fun rotate(angle: Float): Velocity2D {
+  public fun rotating(angle: Float): Velocity2D {
     return Velocity2D(this.vector.copy().rotate(angle))
   }
 
-  public fun rotateAssign(angle: Float) {
+  public fun rotate(angle: Float) {
     this.vector.rotate(angle)
   }
 
-  public fun limit(magnitude: Float): Velocity2D {
+  public fun limiting(magnitude: Float): Velocity2D {
     return Velocity2D(this.vector.copy().limit(magnitude))
   }
 
-  public fun limitAssign(magnitude: Float) {
+  public fun limit(magnitude: Float) {
     this.vector.limit(magnitude)
   }
 
-  public fun normalize(): Velocity2D {
+  public fun normalized(): Velocity2D {
     return Velocity2D(this.vector.copy().normalize())
   }
 
-  public fun normalizeAssign() {
+  public fun normalize() {
     this.vector.normalize()
   }
 

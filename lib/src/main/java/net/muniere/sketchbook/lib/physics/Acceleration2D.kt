@@ -25,6 +25,22 @@ public final class Acceleration2D(
     return this.vector.copy()
   }
 
+  public operator fun plus(delta: Acceleration2D): Acceleration2D {
+    return Acceleration2D(this.vector.copy().add(delta.toVector()))
+  }
+
+  public fun add(delta: Acceleration2D) {
+    this.vector.add(delta.vector)
+  }
+
+  public operator fun minus(delta: Acceleration2D): Acceleration2D {
+    return Acceleration2D(this.vector.copy().sub(delta.toVector()))
+  }
+
+  public fun sub(delta: Acceleration2D) {
+    this.vector.sub(delta.vector)
+  }
+
   public fun with(other: Acceleration2D): Acceleration2D {
     return Acceleration2D(other.vector)
   }
@@ -33,27 +49,27 @@ public final class Acceleration2D(
     this.vector.set(other.vector)
   }
 
-  public fun rotate(angle: Float): Acceleration2D {
+  public fun rotating(angle: Float): Acceleration2D {
     return Acceleration2D(this.vector.copy().rotate(angle))
   }
 
-  public fun rotateAssign(angle: Float) {
+  public fun rotate(angle: Float) {
     this.vector.rotate(angle)
   }
 
-  public fun limit(magnitude: Float): Acceleration2D {
+  public fun limiting(magnitude: Float): Acceleration2D {
     return Acceleration2D(this.vector.copy().limit(magnitude))
   }
 
-  public fun limitAssign(magnitude: Float) {
+  public fun limit(magnitude: Float) {
     this.vector.limit(magnitude)
   }
 
-  public fun normalize(): Acceleration2D {
+  public fun normalized(): Acceleration2D {
     return Acceleration2D(this.vector.copy().normalize())
   }
 
-  public fun normalizeAssign() {
+  public fun normalize() {
     this.vector.normalize()
   }
 

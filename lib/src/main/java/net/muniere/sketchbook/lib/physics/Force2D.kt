@@ -33,7 +33,7 @@ public final class Force2D(
     return Force2D(this.vector.copy().add(delta.toVector()))
   }
 
-  public operator fun plusAssign(delta: Force2D) {
+  public fun add(delta: Force2D) {
     this.vector.add(delta.vector)
   }
 
@@ -41,7 +41,7 @@ public final class Force2D(
     return Force2D(this.vector.copy().sub(delta.toVector()))
   }
 
-  public operator fun minusAssign(delta: Force2D) {
+  public fun sub(delta: Force2D) {
     this.vector.sub(delta.vector)
   }
 
@@ -49,7 +49,7 @@ public final class Force2D(
     return Force2D(this.vector.copy().mult(value))
   }
 
-  public operator fun timesAssign(value: Float) {
+  public fun mult(value: Float) {
     this.vector.mult(value)
   }
 
@@ -61,27 +61,27 @@ public final class Force2D(
     this.vector.set(value.vector)
   }
 
-  public fun rotate(angle: Float): Force2D {
+  public fun rotating(angle: Float): Force2D {
     return Force2D(this.vector.copy().rotate(angle))
   }
 
-  public fun rotateAssign(angle: Float) {
+  public fun rotate(angle: Float) {
     this.vector.rotate(angle)
   }
 
-  public fun limit(magnitude: Float): Force2D {
+  public fun limiting(magnitude: Float): Force2D {
     return Force2D(this.vector.copy().limit(magnitude))
   }
 
-  public fun limitAssign(magnitude: Float) {
+  public fun limit(magnitude: Float) {
     this.vector.limit(magnitude)
   }
 
-  public fun normalize(): Force2D {
+  public fun normalized(): Force2D {
     return Force2D(this.vector.copy().normalize())
   }
 
-  public fun normalizeAssign() {
+  public fun normalize() {
     this.vector.normalize()
   }
 

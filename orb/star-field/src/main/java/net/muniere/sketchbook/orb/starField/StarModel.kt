@@ -19,7 +19,7 @@ internal final class StarModel(
     set(value) {
       if (value > 0 && this.velocity.magnitude() == 0.0F) {
         val accel = Acceleration3D(x = 0.0F, y = 0.0F, z = 1.0F)
-        this.velocity.plusAssign(accel)
+        this.velocity.add(accel)
         this.velocity.normalize()
       }
 

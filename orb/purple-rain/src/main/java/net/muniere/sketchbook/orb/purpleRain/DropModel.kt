@@ -28,7 +28,7 @@ internal final class DropModel(
     )
 
     this.point.y += this.velocity.y
-    this.velocity.plusAssign(accel)
+    this.velocity.add(accel)
   }
 
   public fun reset() {
