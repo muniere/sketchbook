@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.purpleRain
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.graphics.Rect2D
@@ -40,8 +41,8 @@ public final class Sketch(size: Size2D) : Sketch(size) {
         z = random(20.0F),
       )
       val length = origin.z.map(
-        domain = 0.0F..20.0F,
-        target = 10.0F..50.0F,
+        domain = FloatRange(0.0F, 20.0F),
+        target = FloatRange(10.0F, 50.0F),
       )
       return@List DropModel(
         origin = origin,

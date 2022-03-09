@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.purpleRain
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.map
 import net.muniere.sketchbook.lib.physics.Acceleration3D
@@ -17,8 +18,8 @@ internal final class DropModel(
 
   public fun update() {
     val gravity = this.point.z.map(
-      domain = 0.0F..20.0F,
-      target = 0.0F..0.01F,
+      domain = FloatRange(0.0F, 20.0F),
+      target = FloatRange(0.0F, 0.01F),
     )
 
     val accel = Acceleration3D(

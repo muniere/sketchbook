@@ -6,7 +6,6 @@ import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.physics.CircularMaterial
 import net.muniere.sketchbook.lib.physics.Velocity2D
-import net.muniere.sketchbook.lib.random
 import kotlin.random.Random
 
 internal interface IgnitionModel {
@@ -14,12 +13,13 @@ internal interface IgnitionModel {
 }
 
 internal class RandomIgnitionModel : IgnitionModel {
-  public var radiusRange: FloatRange = 0.0F..0.0F
-  public var speedRange: FloatRange = 0.0F..0.0F
-  public var lifespanRange: IntRange = 0..0
+  public var radiusRange = FloatRange(0.0F, 0.0F)
+  public var speedRange = FloatRange(0.0F, 0.0F)
+  public var lifespanRange = IntRange(0, 0)
 
   override fun performIn(rect: Rect2D): FireSeedModel {
-    val xs = rect.left..rect.right
+    val xs = FloatRange(rect.left, rect.right)
+
     val color = Color.valueOf(
       Random.nextFloat(),
       Random.nextFloat(),

@@ -3,7 +3,6 @@ package net.muniere.sketchbook.orb.fireworks
 import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.physics.CircularMaterial
 import net.muniere.sketchbook.lib.physics.Velocity2D
-import net.muniere.sketchbook.lib.random
 
 internal interface ExplosionModel {
   public fun perform(core: CircularMaterial): List<CircularMaterial>
@@ -12,7 +11,7 @@ internal interface ExplosionModel {
 internal class RandomExplosionModel : ExplosionModel {
   public var count: Int = 1
   public var scale: Float = 1.0F
-  public var range: FloatRange = -1.0F..1.0F
+  public var range: FloatRange = FloatRange(-1.0F, 1.0F)
 
   override fun perform(core: CircularMaterial): List<CircularMaterial> {
     return List(this.count) {

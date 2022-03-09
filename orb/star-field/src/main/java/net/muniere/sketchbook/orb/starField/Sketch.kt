@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.starField
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -68,8 +69,8 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
     this.model.starField.setSpeed(
       Point2D.dist(mousePoint, canvasCenter).map(
-        domain = 0.0F..Point2D.dist(canvasOrigin, canvasCenter),
-        target = Params.STAR_SPEED_MIN..Params.STAR_SPEED_MAX,
+        domain = FloatRange(0.0F, Point2D.dist(canvasOrigin, canvasCenter)),
+        target = FloatRange(Params.STAR_SPEED_MIN, Params.STAR_SPEED_MAX),
       )
     )
   }

@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.fireworks
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -14,14 +15,17 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   private object Params {
     internal val CANVAS_COLOR = Color.valueOf(0x22222255)
     internal val PARTICLE_COLOR = Color.valueOf(0xFFFFFF)
-    internal val FIREWORKS_COUNT = 20
-    internal val FIREWORKS_RADIUS_RANGE = 4.0F..8.0F
-    internal val FIREWORKS_SPEED_RANGE = -6.0F..-14.0F
+
+    internal const val FIREWORKS_COUNT = 20
+    internal val FIREWORKS_RADIUS_RANGE = FloatRange(4.0F, 8.0F)
+    internal val FIREWORKS_SPEED_RANGE = FloatRange(-6.0F, -14.0F)
     internal val FIREWORKS_LIFESPAN_RANGE = 200..500
-    internal val EXPLOSION_SCALE = 1.0F / 3.0F
-    internal val EXPLOSION_COUNT = 50
-    internal val EXPLOSION_SPEED_RANGE = -2.0F..2.0F
-    internal val GRAVITY_VALUE = 0.1F
+
+    internal const val EXPLOSION_SCALE = 1.0F / 3.0F
+    internal const val EXPLOSION_COUNT = 50
+    internal val EXPLOSION_SPEED_RANGE = FloatRange(-2.0F, 2.0F)
+
+    internal const val GRAVITY_VALUE = 0.1F
   }
 
   private lateinit var model: ApplicationModel
