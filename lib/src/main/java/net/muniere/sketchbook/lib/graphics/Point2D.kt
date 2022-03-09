@@ -1,6 +1,8 @@
 package net.muniere.sketchbook.lib.graphics
 
+import kotlin.math.cos
 import kotlin.math.pow
+import kotlin.math.sin
 import kotlin.math.sqrt
 
 public final data class Point2D(
@@ -9,6 +11,13 @@ public final data class Point2D(
 ) {
   public companion object {
     public fun zero() = Point2D(0.0F, 0.0F)
+
+    public fun polar(radius: Float, angle: Float): Point2D {
+      return Point2D(
+        x = radius * cos(angle.toDouble()).toFloat(),
+        y = radius * sin(angle.toDouble()).toFloat(),
+      )
+    }
 
     public fun dist(a: Point2D, b: Point2D): Float {
       return sqrt((a.x - b.x).pow(2) + (a.y - b.y).pow(2))

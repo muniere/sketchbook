@@ -2,6 +2,7 @@ package net.muniere.sketchbook
 
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.Sketch
+import net.muniere.sketchbook.orb.circleMorphing.Sketch as CircleMorphingSketch
 import net.muniere.sketchbook.orb.fireworks.Sketch as FireworksSketch
 import net.muniere.sketchbook.orb.mengerSponge.Sketch as MengerSpongeSketch
 import net.muniere.sketchbook.orb.purpleRain.Sketch as PurpleRainSketch
@@ -53,6 +54,14 @@ public sealed class SketchSeed(
     caption = "Fireworks",
   ) {
     override fun inflate(size: Size2D) = FireworksSketch(size)
+  }
+
+  public final object CircleMorphing : SketchSeed(
+    id = 81,
+    title = "Circle Morphing",
+    caption = "Circle Morphing",
+  ) {
+    override fun inflate(size: Size2D) = CircleMorphingSketch(size)
   }
 
   override fun equals(other: Any?): Boolean {

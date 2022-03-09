@@ -46,7 +46,9 @@ public open class Sketch(
 
   final override fun draw() {
     this.plugins.forEach { it.onPreDraw(this) }
+    this.push()
     this.doDraw()
+    this.pop()
     this.plugins.forEach { it.onPostDraw(this) }
   }
 

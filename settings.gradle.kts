@@ -31,5 +31,6 @@ include(
   ":orb:menger-sponge",
   ":orb:purple-rain",
   ":orb:fireworks",
+  ":orb:circle-morphing",
   ":lib",
 )
