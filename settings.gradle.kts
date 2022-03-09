@@ -27,11 +27,12 @@ rootProject.name = "sketchbook"
 
 include(
   ":app",
-  ":orb:star-field",
+  ":orb:bezier-curve",
+  ":orb:circle-morphing",
+  ":orb:circle-packing",
+  ":orb:fireworks",
   ":orb:menger-sponge",
   ":orb:purple-rain",
-  ":orb:fireworks",
-  ":orb:circle-morphing",
-  ":orb:bezier-curve",
+  ":orb:star-field",
   ":lib",
 )

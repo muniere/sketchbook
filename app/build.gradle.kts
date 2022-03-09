@@ -34,12 +34,13 @@ android {
 
 dependencies {
   implementation(project(":lib"))
-  implementation(project(":orb:star-field"))
+  implementation(project(":orb:bezier-curve"))
+  implementation(project(":orb:circle-morphing"))
+  implementation(project(":orb:circle-packing"))
+  implementation(project(":orb:fireworks"))
   implementation(project(":orb:menger-sponge"))
   implementation(project(":orb:purple-rain"))
-  implementation(project(":orb:fireworks"))
-  implementation(project(":orb:circle-morphing"))
-  implementation(project(":orb:bezier-curve"))
+  implementation(project(":orb:star-field"))
 
   implementation(kotlin("reflect"))
   implementation("androidx.core:core-ktx:1.7.0")
