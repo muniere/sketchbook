@@ -39,6 +39,7 @@ dependencies {
   implementation(project(":orb:purple-rain"))
   implementation(project(":orb:fireworks"))
   implementation(project(":orb:circle-morphing"))
+  implementation(project(":orb:bezier-curve"))
 
   implementation(kotlin("reflect"))
   implementation("androidx.core:core-ktx:1.7.0")

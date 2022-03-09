@@ -32,5 +32,6 @@ include(
   ":orb:purple-rain",
   ":orb:fireworks",
   ":orb:circle-morphing",
+  ":orb:bezier-curve",
   ":lib",
 )
