@@ -28,13 +28,17 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   )
 
   override fun doSetup() {
+    val xs = FloatRange(-this.width / 2.0F, this.width / 2.0F)
+    val ys = FloatRange(-this.height / 2.0F, this.height / 2.0F)
+    val zs = FloatRange(0.0F, this.width.toFloat())
+
     val stars = List(Params.STAR_COUNT) {
       StarModel(
         radius = Params.STAR_RADIUS,
         center = Point3D(
-          x = random(-this.width / 2.0F, this.width / 2.0F),
-          y = random(-this.height / 2.0F, this.height / 2.0F),
-          z = random(this.width.toFloat())
+          x = xs.random(),
+          y = ys.random(),
+          z = zs.random()
         )
       )
     }
