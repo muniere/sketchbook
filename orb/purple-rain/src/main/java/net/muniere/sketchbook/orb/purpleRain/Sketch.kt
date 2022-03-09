@@ -28,26 +28,30 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   )
 
   override fun doSetup() {
+    val frame = Rect2D(
+      origin = Point2D.zero(),
+      size = this.size,
+    )
+
+    val drops = List(Params.DROP_COUNT) {
+      val origin = Point3D(
+        x = random(this.size.width),
+        y = random(-500.0F),
+        z = random(20.0F),
+      )
+      val length = origin.z.map(
+        domain = 0.0F..20.0F,
+        target = 10.0F..50.0F,
+      )
+      return@List DropModel(
+        origin = origin,
+        length = length,
+      )
+    }
+
     this.model = ApplicationModel(
-      frame = Rect2D(
-        origin = Point2D.zero(),
-        size = this.size,
-      ),
-      drops = List(Params.DROP_COUNT) {
-        val origin = Point3D(
-          x = random(this.size.width),
-          y = random(-500.0F),
-          z = random(20.0F),
-        )
-        val length = origin.z.map(
-          domain = 0.0F..20.0F,
-          target = 10.0F..50.0F,
-        )
-        return@List DropModel(
-          origin = origin,
-          length = length,
-        )
-      }
+      frame = frame,
+      drops = drops,
     ).also {
       it.color = Params.DROP_COLOR
     }

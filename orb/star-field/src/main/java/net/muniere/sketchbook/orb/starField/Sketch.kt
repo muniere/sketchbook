@@ -27,17 +27,19 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   )
 
   override fun doSetup() {
-    this.model = ApplicationModel(
-      stars = List(Params.STAR_COUNT) {
-        StarModel(
-          radius = Params.STAR_RADIUS,
-          center = Point3D(
-            x = random(-this.width / 2.0F, this.width / 2.0F),
-            y = random(-this.height / 2.0F, this.height / 2.0F),
-            z = random(this.width.toFloat())
-          )
+    val stars = List(Params.STAR_COUNT) {
+      StarModel(
+        radius = Params.STAR_RADIUS,
+        center = Point3D(
+          x = random(-this.width / 2.0F, this.width / 2.0F),
+          y = random(-this.height / 2.0F, this.height / 2.0F),
+          z = random(this.width.toFloat())
         )
-      }
+      )
+    }
+
+    this.model = ApplicationModel(
+      stars = stars
     )
 
     this.widget = ApplicationWidget(this.g).also {

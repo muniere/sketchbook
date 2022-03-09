@@ -6,7 +6,6 @@ import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.physics.Acceleration2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.Plugin
 import net.muniere.sketchbook.lib.processing.Sketch
 import net.muniere.sketchbook.lib.processing.background
 
@@ -33,30 +32,39 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   )
 
   override fun doSetup() {
-    this.model = ApplicationModel(
-      frame = Rect2D(
-        origin = Point2D.zero(),
-        size = this.size,
-      ),
-      gravity = Acceleration2D(
-        x = 0.0F,
-        y = Params.GRAVITY_VALUE,
-      ),
-      ignition = RandomIgnitionModel().also {
-        it.radiusRange = Params.FIREWORKS_RADIUS_RANGE
-        it.speedRange = Params.FIREWORKS_SPEED_RANGE
-        it.lifespanRange = Params.FIREWORKS_LIFESPAN_RANGE
-      },
-      fireworks = List(Params.FIREWORKS_COUNT) {
-        FireworkModel(
-          explosion = RandomExplosionModel().also {
-            it.count = Params.EXPLOSION_COUNT
-            it.scale = Params.EXPLOSION_SCALE
-            it.range = Params.EXPLOSION_SPEED_RANGE
-          },
-        )
-      }
+    val frame = Rect2D(
+      origin = Point2D.zero(),
+      size = this.size,
     )
+
+    val gravity = Acceleration2D(
+      x = 0.0F,
+      y = Params.GRAVITY_VALUE,
+    )
+
+    val ignition = RandomIgnitionModel().also {
+      it.radiusRange = Params.FIREWORKS_RADIUS_RANGE
+      it.speedRange = Params.FIREWORKS_SPEED_RANGE
+      it.lifespanRange = Params.FIREWORKS_LIFESPAN_RANGE
+    }
+
+    val fireworks = List(Params.FIREWORKS_COUNT) {
+      FireworkModel(
+        explosion = RandomExplosionModel().also {
+          it.count = Params.EXPLOSION_COUNT
+          it.scale = Params.EXPLOSION_SCALE
+          it.range = Params.EXPLOSION_SPEED_RANGE
+        },
+      )
+    }
+
+    this.model = ApplicationModel(
+      frame = frame,
+      gravity = gravity,
+      ignition = ignition,
+      fireworks = fireworks,
+    )
+
     this.widget = ApplicationWidget(this.g).also {
       it.model = this.model
     }

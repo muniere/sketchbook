@@ -22,13 +22,15 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     get() = Renderer.P3D
 
   override fun doSetup() {
+    val sponge = SpongeModel(
+      size = Params.SPONGE_SIZE,
+    ).also {
+      it.fillColor = Params.FILL_COLOR
+      it.strokeColor = Params.STROKE_COLOR
+    }
+
     this.model = ApplicationModel(
-      sponge = SpongeModel(
-        size = Params.SPONGE_SIZE,
-      ).also {
-        it.fillColor = Params.FILL_COLOR
-        it.strokeColor = Params.STROKE_COLOR
-      }
+      sponge = sponge,
     )
 
     this.widget = ApplicationWidget(this.g).also {
@@ -39,7 +41,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   override fun doDraw() {
     // canvas
     this.g.background(Params.CANVAS_COLOR)
-    this.g.translate(this.width/2.0F, this.height/2.0F)
+    this.g.translate(this.width / 2.0F, this.height / 2.0F)
     this.g.lights()
 
     // widget
