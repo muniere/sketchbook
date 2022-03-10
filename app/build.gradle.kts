@@ -41,6 +41,7 @@ dependencies {
   implementation(project(":orb:menger-sponge"))
   implementation(project(":orb:purple-rain"))
   implementation(project(":orb:star-field"))
+  implementation(project(":orb:steering-behaviors"))
 
   implementation(kotlin("reflect"))
   implementation("androidx.core:core-ktx:1.7.0")

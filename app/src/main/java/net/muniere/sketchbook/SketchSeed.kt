@@ -9,6 +9,7 @@ import net.muniere.sketchbook.orb.fireworks.Sketch as FireworksSketch
 import net.muniere.sketchbook.orb.mengerSponge.Sketch as MengerSpongeSketch
 import net.muniere.sketchbook.orb.purpleRain.Sketch as PurpleRainSketch
 import net.muniere.sketchbook.orb.starField.Sketch as StarFieldSketch
+import net.muniere.sketchbook.orb.steeringBehaviors.Sketch as SteeringBehaviorsSketch
 
 public sealed class SketchSeed(
   public val id: Int,
@@ -64,6 +65,14 @@ public sealed class SketchSeed(
     caption = "Circle Packing",
   ) {
     override fun inflate(size: Size2D) = CirclePackingSketch(size)
+  }
+
+  public final object SteeringBehaviors : SketchSeed(
+    id = 59,
+    title = "Steering Behaviors",
+    caption = "Steering Behaviors",
+  ) {
+    override fun inflate(size: Size2D) = SteeringBehaviorsSketch(size)
   }
 
   public final object CircleMorphing : SketchSeed(

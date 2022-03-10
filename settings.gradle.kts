@@ -34,5 +34,6 @@ include(
   ":orb:menger-sponge",
   ":orb:purple-rain",
   ":orb:star-field",
+  ":orb:steering-behaviors",
   ":lib",
 )
