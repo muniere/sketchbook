@@ -1,42 +1,63 @@
 package net.muniere.sketchbook
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.util.AttributeSet
-import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.airbnb.epoxy.CallbackProp
-import com.airbnb.epoxy.ModelProp
-import com.airbnb.epoxy.ModelView
-import net.muniere.sketchbook.databinding.SketchTileBinding
-import kotlin.properties.Delegates
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
+import com.google.android.material.composethemeadapter.MdcTheme
 
-@SuppressLint("NonConstantResourceId")
-@ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
-public final class SketchTile : ConstraintLayout {
-
-  private val binding = SketchTileBinding.inflate(LayoutInflater.from(this.context), this)
-
-  constructor(context: Context) : super(context)
-  constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-  constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
-  @set:ModelProp
-  public var seed: SketchSeed? by Delegates.observable(null) { _, _, newValue ->
-    this.binding.titleLabel.text = newValue?.let(SketchFormat::format)
-    this.binding.captionLabel.text = newValue?.caption
-  }
-
-  @CallbackProp
-  override fun setOnClickListener(listener: View.OnClickListener?) {
-    super.setOnClickListener(listener)
-
-    val resolved = TypedValue().also {
-      this.context.theme.resolveAttribute(android.R.attr.selectableItemBackground, it, true)
+@Composable
+public fun SketchTile(
+  seed: SketchSeed,
+  onClick: (() -> Unit),
+) {
+  Box(
+    Modifier.clickable(onClick = onClick)
+  ) {
+    Column(
+      Modifier.padding(
+        horizontal = Dp(16.0F),
+        vertical = Dp(12.0F)
+      )
+    ) {
+      Text(
+        text = seed.let(SketchFormat::format),
+        style = MaterialTheme.typography.bodyLarge,
+      )
+      Text(
+        text = seed.caption,
+        style = MaterialTheme.typography.labelMedium,
+        color = Color.Gray
+      )
     }
 
-    this.setBackgroundResource(resolved.resourceId)
+    Box(
+      Modifier.align(Alignment.BottomCenter)
+    ) {
+      Divider()
+    }
+  }
+}
+
+@Preview
+@Composable
+private fun SketchTilePreview() {
+  MdcTheme {
+    Box(Modifier.background(Color.White)) {
+      SketchTile(
+        seed = SketchSeed.StarField,
+        onClick = { },
+      )
+    }
   }
 }

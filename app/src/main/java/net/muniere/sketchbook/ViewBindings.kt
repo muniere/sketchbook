@@ -9,7 +9,7 @@ import kotlin.reflect.KProperty
 public inline fun <reified T : ViewBinding> Activity.viewBinding() = ActivityViewBindingDelegate(T::class.java)
 
 public final class ActivityViewBindingDelegate<T : ViewBinding>(
-  private val bindingClass: Class<T>
+  private val bindingClass: Class<T>,
 ) : ReadOnlyProperty<Activity, T> {
 
   private var binding: T? = null
