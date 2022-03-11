@@ -1,7 +1,6 @@
 plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
-  id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -16,7 +15,6 @@ android {
   }
 
   buildFeatures {
-    viewBinding = true
     compose = true
   }
   buildTypes {
