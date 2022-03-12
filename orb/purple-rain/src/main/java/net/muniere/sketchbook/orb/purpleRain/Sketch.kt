@@ -17,14 +17,19 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   private lateinit var widget: ApplicationWidget
 
   private object Params {
-    internal val CANVAS_COLOR = Colors.parse("#E6E6FA")
-    internal val DROP_COLOR = Colors.parse("#8A2BE2")
-    internal const val DROP_COUNT = 200
+    internal object Canvas {
+      internal val COLOR = Colors.parse("#E6E6FA")
+    }
+
+    internal object Drop {
+      internal val COLOR = Colors.parse("#8A2BE2")
+      internal const val COUNT = 200
+    }
   }
 
   override fun configure() = listOf(
     MetricsPlugin(this.g).also {
-      it.textColor = Params.DROP_COLOR
+      it.textColor = Params.Drop.COLOR
     }
   )
 
@@ -34,7 +39,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
       size = this.size,
     )
 
-    val drops = List(Params.DROP_COUNT) {
+    val drops = List(Params.Drop.COUNT) {
       val origin = Point3D(
         x = random(this.size.width),
         y = random(-500.0F),
@@ -54,7 +59,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
       frame = frame,
       drops = drops,
     ).also {
-      it.color = Params.DROP_COLOR
+      it.color = Params.Drop.COLOR
     }
 
     this.widget = ApplicationWidget(this.g).also {
@@ -63,7 +68,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   }
 
   override fun doDraw() {
-    this.g.background(Params.CANVAS_COLOR)
+    this.g.background(Params.Canvas.COLOR)
 
     this.widget.draw()
 

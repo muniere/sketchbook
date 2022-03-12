@@ -9,7 +9,7 @@ internal class ApplicationModel(
   public val pixelCrowd: PixelCrowdModel,
   public val circleCrowd: CircleCrowdModel,
 ) {
-  public var spawnChance: Int = 0
+  public var spawnChallenge: Int = 0
   public var spawnRadius: Float = 0.0F
   public var spawnSpeed: Int = 0
 
@@ -48,7 +48,7 @@ internal class ApplicationModel(
 
   public fun update(): Boolean {
     var count = 0
-    var chance = this.spawnChance
+    var chance = this.spawnChallenge
     val radius = this.spawnRadius
 
     while (chance > 0) {

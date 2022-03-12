@@ -13,18 +13,24 @@ import kotlin.random.Random
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Colors.parse("#222222")
+    internal object Canvas {
+      internal val COLOR = Colors.parse("#222222")
+    }
 
-    internal val TEXT_COLOR = Colors.parse("#FFFFFF")
-    internal const val TEXT_WORD = "hello, world"
-    internal const val FONT_SIZE = 160.0F
-    internal const val FONT_STEP = 15.0F
+    internal object Text {
+      internal val COLOR = Colors.parse("#FFFFFF")
+      internal const val VALUE = "hello, world"
+      internal const val FONT_SIZE = 160.0F
+      internal const val PATH_STEP = 15.0F
+    }
 
-    internal val VEHICLE_ATTRACTION = GravitationField(distance = 100.0F, factor = 1.0F)
-    internal val VEHICLE_REPULSION = GravitationField(distance = 50.0F, factor = 2.0F)
-    internal const val VEHICLE_RADIUS = 2.0F
-    internal const val VEHICLE_SPEED_MAX = 10.0F
-    internal const val VEHICLE_FORCE_MAX = 1.0F
+    internal object Vehicle {
+      internal val ATTRACTION = GravitationField(distance = 100.0F, factor = 1.0F)
+      internal val REPULSION = GravitationField(distance = 50.0F, factor = 2.0F)
+      internal const val RADIUS = 2.0F
+      internal const val SPEED_MAX = 10.0F
+      internal const val FORCE_MAX = 1.0F
+    }
   }
 
   private lateinit var model: ApplicationModel
@@ -38,17 +44,17 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     super.doSetup()
 
     val factory = PathFactory().also {
-      it.textSize = Params.FONT_SIZE
-      it.stepSize = Params.FONT_STEP
+      it.textSize = Params.Text.FONT_SIZE
+      it.stepSize = Params.Text.PATH_STEP
     }
 
-    val path = factory.analyze(Params.TEXT_WORD).let {
+    val path = factory.analyze(Params.Text.VALUE).let {
       it + Move2D((this.width - it.width()) / 2, (this.height - it.height()) / 2)
     }
 
     val vehicles = path.points.map { anchor ->
       VehicleModel(
-        radius = Params.VEHICLE_RADIUS,
+        radius = Params.Vehicle.RADIUS,
         center = Point2D.zero(),
         velocity = Velocity2D(
           x = Random.nextFloat(),
@@ -56,11 +62,11 @@ public final class Sketch(size: Size2D) : Sketch(size) {
         ),
       ).also {
         it.anchor = anchor.copy()
-        it.strokeColor = Params.TEXT_COLOR
-        it.attraction = Params.VEHICLE_ATTRACTION
-        it.repulsion = Params.VEHICLE_REPULSION
-        it.maxSpeed = Params.VEHICLE_SPEED_MAX
-        it.maxForce = Params.VEHICLE_FORCE_MAX
+        it.strokeColor = Params.Text.COLOR
+        it.attraction = Params.Vehicle.ATTRACTION
+        it.repulsion = Params.Vehicle.REPULSION
+        it.maxSpeed = Params.Vehicle.SPEED_MAX
+        it.maxForce = Params.Vehicle.FORCE_MAX
       }
     }
 
@@ -73,7 +79,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.CANVAS_COLOR)
+    this.g.background(Params.Canvas.COLOR)
 
     // widget
     this.widget.draw()

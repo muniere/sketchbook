@@ -15,15 +15,21 @@ import kotlin.random.Random
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Colors.parse("#222222")
+    internal object Canvas {
+      internal val COLOR = Colors.parse("#222222")
+    }
 
-    internal const val PATH_MARGIN = 10.0F
-    internal const val PATH_RESOLUTION = 50
+    internal object Path {
+      internal const val MARGIN = 10.0F
+      internal const val RESOLUTION = 50
+    }
 
-    internal const val CONTROL_COUNT = 2
-    internal const val CONTROL_RADIUS = 5.0F
-    internal const val CONTROL_SPEED_MAX = 10.0F
-    internal const val CONTROL_SPEED_MIN = 1.0F
+    internal object Control {
+      internal const val COUNT = 2
+      internal const val RADIUS = 5.0F
+      internal const val SPEED_MAX = 10.0F
+      internal const val SPEED_MIN = 1.0F
+    }
   }
 
   private lateinit var model: ApplicationModel
@@ -35,8 +41,8 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
   override fun doSetup() {
     val speedRange = FloatRange(
-      Params.CONTROL_SPEED_MIN,
-      Params.CONTROL_SPEED_MAX,
+      Params.Control.SPEED_MIN,
+      Params.Control.SPEED_MAX,
     )
 
     val frame = Rect2D(
@@ -44,9 +50,9 @@ public final class Sketch(size: Size2D) : Sketch(size) {
       size = this.size,
     )
 
-    val vehicles = List(Params.CONTROL_COUNT) {
+    val vehicles = List(Params.Control.COUNT) {
       VehicleModel(
-        radius = Params.CONTROL_RADIUS,
+        radius = Params.Control.RADIUS,
         center = Point2D(
           x = Random.nextFloat() * this.width,
           y = Random.nextFloat() * this.height,
@@ -57,15 +63,15 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
     val calculator = CalculatorModel(
       start = Point2D(
-        x = Params.PATH_MARGIN,
+        x = Params.Path.MARGIN,
         y = this.height.toFloat() / 2.0F,
       ),
       stop = Point2D(
-        x = this.width.toFloat() - Params.PATH_MARGIN,
+        x = this.width.toFloat() - Params.Path.MARGIN,
         y = this.height.toFloat() / 2.0F,
       ),
       controls = emptyList(),
-      resolution = Params.PATH_RESOLUTION,
+      resolution = Params.Path.RESOLUTION,
     )
 
     this.model = ApplicationModel(
@@ -85,7 +91,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.CANVAS_COLOR)
+    this.g.background(Params.Canvas.COLOR)
 
     // widget
     this.widget.draw()

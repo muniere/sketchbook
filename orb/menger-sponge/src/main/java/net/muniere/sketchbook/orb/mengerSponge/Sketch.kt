@@ -8,12 +8,19 @@ import net.muniere.sketchbook.lib.processing.background
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Colors.parse("#222222")
-    internal val FILL_COLOR = Colors.parse("#FFFFFF")
-    internal val STROKE_COLOR = Colors.parse("#666666")
+    internal object Canvas {
+      internal val COLOR = Colors.parse("#222222")
+    }
 
-    internal const val SPONGE_SIZE = 200.0F
-    internal const val ROTATION_SPEED = 0.01F
+    internal object Sponge {
+      internal val FILL_COLOR = Colors.parse("#FFFFFF")
+      internal val STROKE_COLOR = Colors.parse("#666666")
+      internal const val SIZE = 200.0F
+    }
+
+    internal object Perspective {
+      internal const val ROTATION_SPEED = 0.01F
+    }
   }
 
   private lateinit var model: ApplicationModel
@@ -24,10 +31,10 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
   override fun doSetup() {
     val sponge = SpongeModel(
-      size = Params.SPONGE_SIZE,
+      size = Params.Sponge.SIZE,
     ).also {
-      it.fillColor = Params.FILL_COLOR
-      it.strokeColor = Params.STROKE_COLOR
+      it.fillColor = Params.Sponge.FILL_COLOR
+      it.strokeColor = Params.Sponge.STROKE_COLOR
     }
 
     this.model = ApplicationModel(
@@ -41,7 +48,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.CANVAS_COLOR)
+    this.g.background(Params.Canvas.COLOR)
     this.g.translate(this.width / 2.0F, this.height / 2.0F)
     this.g.lights()
 
@@ -49,7 +56,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     this.widget.draw()
 
     // update
-    this.model.rotate(Params.ROTATION_SPEED)
+    this.model.rotate(Params.Perspective.ROTATION_SPEED)
   }
 
   override fun touchEnded() {

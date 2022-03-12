@@ -13,11 +13,16 @@ import net.muniere.sketchbook.lib.processing.background
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Colors.parse("#111111")
-    internal const val STAR_RADIUS = 5.0F
-    internal const val STAR_COUNT = 1000
-    internal const val STAR_SPEED_MIN = 10.0F
-    internal const val STAR_SPEED_MAX = 100.0F
+    internal object Canvas {
+      internal val COLOR = Colors.parse("#111111")
+    }
+
+    internal object Star {
+      internal const val RADIUS = 5.0F
+      internal const val COUNT = 1000
+      internal const val SPEED_MIN = 10.0F
+      internal const val SPEED_MAX = 100.0F
+    }
   }
 
   private lateinit var model: ApplicationModel
@@ -32,9 +37,9 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     val ys = FloatRange(-this.height / 2.0F, this.height / 2.0F)
     val zs = FloatRange(0.0F, this.width.toFloat())
 
-    val stars = List(Params.STAR_COUNT) {
+    val stars = List(Params.Star.COUNT) {
       StarModel(
-        radius = Params.STAR_RADIUS,
+        radius = Params.Star.RADIUS,
         center = Point3D(
           x = xs.random(),
           y = ys.random(),
@@ -53,7 +58,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   }
 
   override fun doDraw() {
-    this.g.background(Params.CANVAS_COLOR)
+    this.g.background(Params.Canvas.COLOR)
     this.widget.draw()
     this.model.update()
   }
@@ -74,7 +79,7 @@ public final class Sketch(size: Size2D) : Sketch(size) {
     this.model.starField.setSpeed(
       Point2D.dist(mousePoint, canvasCenter).map(
         domain = FloatRange(0.0F, Point2D.dist(canvasOrigin, canvasCenter)),
-        target = FloatRange(Params.STAR_SPEED_MIN, Params.STAR_SPEED_MAX),
+        target = FloatRange(Params.Star.SPEED_MIN, Params.Star.SPEED_MAX),
       )
     )
   }
