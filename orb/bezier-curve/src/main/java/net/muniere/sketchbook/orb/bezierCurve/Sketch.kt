@@ -1,7 +1,7 @@
 package net.muniere.sketchbook.orb.bezierCurve
 
-import android.graphics.Color
 import net.muniere.sketchbook.lib.FloatRange
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -15,7 +15,7 @@ import kotlin.random.Random
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0x222222)
+    internal val CANVAS_COLOR = Colors.parse("#222222")
 
     internal const val PATH_MARGIN = 10.0F
     internal const val PATH_RESOLUTION = 50

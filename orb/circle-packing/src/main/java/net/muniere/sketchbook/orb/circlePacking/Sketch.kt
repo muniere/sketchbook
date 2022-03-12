@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.circlePacking
 
-import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -10,8 +10,9 @@ import net.muniere.sketchbook.lib.processing.background
 
 public final class Sketch(size: Size2D) : Sketch(size) {
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0x222222)
-    internal val STROKE_COLOR = Color.valueOf(0xFFFFFF)
+    internal val CANVAS_COLOR = Colors.parse("#222222")
+    internal val STROKE_COLOR = Colors.parse("#FFFFFF")
+
     internal const val SPAWN_SPEED = 10
     internal const val SPAWN_RADIUS = 5.0F
     internal const val SHAPE_ALPHA = 0.05F

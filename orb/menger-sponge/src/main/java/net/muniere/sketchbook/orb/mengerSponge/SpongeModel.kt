@@ -1,12 +1,13 @@
 package net.muniere.sketchbook.orb.mengerSponge
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point3D
 
 internal final class SpongeModel(
   size: Float,
 ) {
-  public var strokeColor = Color.valueOf(0xFFFFFF)
+  public var strokeColor: Color = Colors.WHITE
 
   public var fillColor: Color
     get() = this.cubes.first().color

@@ -11,16 +11,8 @@ internal final class CircleWidget(graphics: PGraphics) : ModelWidget<CircleModel
   override fun doDraw(model: CircleModel) {
     this.scope {
       it.strokeWeight(model.strokeWeight)
-
-      when (val color = model.strokeColor) {
-        null -> it.noStroke()
-        else -> it.stroke(color)
-      }
-      when (val color = model.fillColor) {
-        null -> it.noFill()
-        else -> it.fill(color)
-      }
-
+      it.stroke(model.strokeColor)
+      it.fill(model.fillColor)
       it.circle(model.center, model.radius * 2)
     }
   }

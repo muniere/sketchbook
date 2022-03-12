@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.steeringBehaviors
 
-import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Move2D
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -13,9 +13,9 @@ import kotlin.random.Random
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0x222222)
+    internal val CANVAS_COLOR = Colors.parse("#222222")
 
-    internal val TEXT_COLOR = Color.valueOf(0xFFFFFF)
+    internal val TEXT_COLOR = Colors.parse("#FFFFFF")
     internal const val TEXT_WORD = "hello, world"
     internal const val FONT_SIZE = 160.0F
     internal const val FONT_STEP = 15.0F

@@ -1,7 +1,7 @@
 package net.muniere.sketchbook.orb.starField
 
-import android.graphics.Color
 import net.muniere.sketchbook.lib.FloatRange
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -13,7 +13,7 @@ import net.muniere.sketchbook.lib.processing.background
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0x111111)
+    internal val CANVAS_COLOR = Colors.parse("#111111")
     internal const val STAR_RADIUS = 5.0F
     internal const val STAR_COUNT = 1000
     internal const val STAR_SPEED_MIN = 10.0F

@@ -1,8 +1,8 @@
 package net.muniere.sketchbook.orb.bezierCurve
 
-import android.graphics.Color
 import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.FloatRangeMapping
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.processing.ModelWidget
 import net.muniere.sketchbook.lib.processing.Sketch
 import net.muniere.sketchbook.lib.processing.stroke
@@ -19,7 +19,7 @@ internal class PathWidget(graphics: PGraphics) : ModelWidget<PathModel>(graphics
     ) : Component()
   }
 
-  public var color = Color.valueOf(Color.WHITE)
+  public var color = Colors.WHITE
   public var components = listOf(
     Component.Auxiliary,
     Component.Curve(PathStyle.DISCRETE)

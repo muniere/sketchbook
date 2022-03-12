@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.lib.processing
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Alignment
 import net.muniere.sketchbook.lib.graphics.Gravity
 import processing.core.PConstants
@@ -9,7 +10,7 @@ import processing.core.PGraphics
 public final class MetricsWidget(graphics: PGraphics) : ModelWidget<MetricsEntity>(graphics) {
   public var padding: Float = 8.0F
   public var alignment: Alignment = Alignment.TOP_LEFT
-  public var textColor: Color = Color.valueOf(Color.WHITE)
+  public var textColor: Color = Colors.WHITE
   public var textSize: Float = 32.0F
 
   private val format = MetricsFormat()

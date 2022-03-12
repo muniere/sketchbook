@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.mengerSponge
 
-import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Move3D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.product
@@ -9,7 +9,7 @@ internal final class CubeModel(
   public val size: Float,
   public val center: Point3D,
 ) {
-  public var color = Color.valueOf(0xFFFFFF)
+  public var color = Colors.parse("#FFFFFF")
 
   public fun spawn(): List<CubeModel> {
     return product(-1..1, -1..1, -1..1).mapNotNull { (x, y, z) ->

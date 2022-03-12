@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.circleMorphing
 
-import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.Sketch
@@ -9,8 +9,9 @@ import net.muniere.sketchbook.lib.processing.background
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0xCCCCCC)
-    internal val STROKE_COLOR = Color.valueOf(0x000000)
+    internal val CANVAS_COLOR = Colors.parse("#CCCCCC")
+    internal val STROKE_COLOR = Colors.parse("#000000")
+
     internal const val RESOLUTION = 360 / 2
     internal const val SRC_RADIUS = 150.0F
     internal const val SRC_VERTEX_N = 0

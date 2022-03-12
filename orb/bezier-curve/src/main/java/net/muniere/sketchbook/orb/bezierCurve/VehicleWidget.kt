@@ -1,13 +1,14 @@
 package net.muniere.sketchbook.orb.bezierCurve
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.circle
 import net.muniere.sketchbook.lib.processing.ModelWidget
 import net.muniere.sketchbook.lib.processing.fill
 import processing.core.PGraphics
 
 internal class VehicleWidget(graphics: PGraphics) : ModelWidget<VehicleModel>(graphics) {
-  public var color = Color.valueOf(Color.WHITE)
+  public var color: Color = Colors.WHITE
 
   override fun doDraw(model: VehicleModel) {
     this.scope {

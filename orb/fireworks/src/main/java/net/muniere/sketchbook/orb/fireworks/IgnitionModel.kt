@@ -1,12 +1,11 @@
 package net.muniere.sketchbook.orb.fireworks
 
-import android.graphics.Color
 import net.muniere.sketchbook.lib.FloatRange
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.physics.CircularMaterial
 import net.muniere.sketchbook.lib.physics.Velocity2D
-import kotlin.random.Random
 
 internal interface IgnitionModel {
   public fun performIn(rect: Rect2D): FireSeedModel
@@ -20,12 +19,7 @@ internal class RandomIgnitionModel : IgnitionModel {
   override fun performIn(rect: Rect2D): FireSeedModel {
     val xs = FloatRange(rect.left, rect.right)
 
-    val color = Color.valueOf(
-      Random.nextFloat(),
-      Random.nextFloat(),
-      Random.nextFloat(),
-      1.0F,
-    )
+    val color = Colors.random()
 
     return FireSeedModel(
       core = CircularMaterial(

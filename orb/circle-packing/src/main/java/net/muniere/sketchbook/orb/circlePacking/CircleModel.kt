@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.circlePacking
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 
@@ -19,7 +20,7 @@ internal final class CircleModel(
     private set
 
   public var strokeWeight: Float = 1.0F
-  public var strokeColor: Color? = Color.valueOf(Color.WHITE)
+  public var strokeColor: Color? = Colors.WHITE
   public var fillColor: Color? = null
 
   companion object {

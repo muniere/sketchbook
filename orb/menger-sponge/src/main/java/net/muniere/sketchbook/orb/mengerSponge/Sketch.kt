@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.mengerSponge
 
-import android.graphics.Color
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.Sketch
 import net.muniere.sketchbook.lib.processing.background
@@ -8,9 +8,10 @@ import net.muniere.sketchbook.lib.processing.background
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0x222222)
-    internal val FILL_COLOR = Color.valueOf(0xFFFFFF)
-    internal val STROKE_COLOR = Color.valueOf(0x666666)
+    internal val CANVAS_COLOR = Colors.parse("#222222")
+    internal val FILL_COLOR = Colors.parse("#FFFFFF")
+    internal val STROKE_COLOR = Colors.parse("#666666")
+
     internal const val SPONGE_SIZE = 200.0F
     internal const val ROTATION_SPEED = 0.01F
   }

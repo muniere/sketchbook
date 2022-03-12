@@ -1,7 +1,7 @@
 package net.muniere.sketchbook.orb.purpleRain
 
-import android.graphics.Color
 import net.muniere.sketchbook.lib.FloatRange
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.graphics.Rect2D
@@ -17,8 +17,8 @@ public final class Sketch(size: Size2D) : Sketch(size) {
   private lateinit var widget: ApplicationWidget
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0xE6E6FA)
-    internal val DROP_COLOR = Color.valueOf(0x8A2BE2)
+    internal val CANVAS_COLOR = Colors.parse("#E6E6FA")
+    internal val DROP_COLOR = Colors.parse("#8A2BE2")
     internal const val DROP_COUNT = 200
   }
 

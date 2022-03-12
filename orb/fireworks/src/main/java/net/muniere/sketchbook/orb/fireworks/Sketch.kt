@@ -1,7 +1,7 @@
 package net.muniere.sketchbook.orb.fireworks
 
-import android.graphics.Color
 import net.muniere.sketchbook.lib.FloatRange
+import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
@@ -13,8 +13,8 @@ import net.muniere.sketchbook.lib.processing.background
 public final class Sketch(size: Size2D) : Sketch(size) {
 
   private object Params {
-    internal val CANVAS_COLOR = Color.valueOf(0x22222255)
-    internal val PARTICLE_COLOR = Color.valueOf(0xFFFFFF)
+    internal val CANVAS_COLOR = Colors.parse("#22222255")
+    internal val PARTICLE_COLOR = Colors.parse("#FFFFFF")
 
     internal const val FIREWORKS_COUNT = 20
     internal val FIREWORKS_RADIUS_RANGE = FloatRange(4.0F, 8.0F)

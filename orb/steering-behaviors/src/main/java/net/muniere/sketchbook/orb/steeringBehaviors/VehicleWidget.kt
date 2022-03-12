@@ -10,15 +10,8 @@ internal final class VehicleWidget(graphics: PGraphics) : ModelWidget<VehicleMod
 
   override fun doDraw(model: VehicleModel) {
     this.scope {
-      when (val color = model.fillColor) {
-        null -> it.noFill()
-        else -> it.fill(color)
-      }
-      when (val color = model.strokeColor) {
-        null -> it.noStroke()
-        else -> it.stroke(color)
-      }
-
+      it.fill(model.fillColor)
+      it.stroke(model.strokeColor)
       it.circle(model.center, model.radius * 2)
     }
   }
