@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.lib.graphics
 
 import processing.core.PGraphics
+import processing.core.PImage
 
 public fun PGraphics.line(p1: Point2D, p2: Point2D) {
   this.line(p1.x, p1.y, p2.x, p2.y)
@@ -20,4 +21,12 @@ public fun PGraphics.rect(rect: Rect2D) {
 
 public fun PGraphics.circle(center: Point2D, extent: Float) {
   this.circle(center.x, center.y, extent)
+}
+
+public fun PGraphics.image(image: PImage, origin: Point2D) {
+  this.image(image, origin.x, origin.y)
+}
+
+public fun PGraphics.image(image: PImage, frame: Rect2D) {
+  this.image(image, frame.left, frame.top, frame.width, frame.height)
 }

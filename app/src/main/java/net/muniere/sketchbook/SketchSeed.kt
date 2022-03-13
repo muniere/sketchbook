@@ -6,6 +6,7 @@ import net.muniere.sketchbook.orb.bezierCurve.Sketch as BezierCurveSketch
 import net.muniere.sketchbook.orb.circleMorphing.Sketch as CircleMorphingSketch
 import net.muniere.sketchbook.orb.circlePacking.Sketch as CirclePackingSketch
 import net.muniere.sketchbook.orb.fireworks.Sketch as FireworksSketch
+import net.muniere.sketchbook.orb.imageDithering.Sketch as ImageDitheringSketch
 import net.muniere.sketchbook.orb.mengerSponge.Sketch as MengerSpongeSketch
 import net.muniere.sketchbook.orb.purpleRain.Sketch as PurpleRainSketch
 import net.muniere.sketchbook.orb.starField.Sketch as StarFieldSketch
@@ -81,6 +82,14 @@ public sealed class SketchSeed(
     caption = "Circle Morphing",
   ) {
     override fun inflate(size: Size2D) = CircleMorphingSketch(size)
+  }
+
+  public final object ImageDithering : SketchSeed(
+    id = 90,
+    title = "Image Dithering",
+    caption = "Image Dithering",
+  ) {
+    override fun inflate(size: Size2D) = ImageDitheringSketch(size)
   }
 
   public final object BezierCurve : SketchSeed(

@@ -31,6 +31,7 @@ include(
   ":orb:circle-morphing",
   ":orb:circle-packing",
   ":orb:fireworks",
+  ":orb:image-dithering",
   ":orb:menger-sponge",
   ":orb:purple-rain",
   ":orb:star-field",
