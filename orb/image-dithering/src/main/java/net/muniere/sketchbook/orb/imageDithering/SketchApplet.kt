@@ -3,9 +3,9 @@ package net.muniere.sketchbook.orb.imageDithering
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
-import net.muniere.sketchbook.lib.processing.Sketch
+import net.muniere.sketchbook.lib.processing.SketchApplet
 
-public final class Sketch : Sketch() {
+internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Image {

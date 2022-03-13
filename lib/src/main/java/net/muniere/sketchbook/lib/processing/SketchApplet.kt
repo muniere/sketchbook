@@ -4,7 +4,7 @@ import net.muniere.sketchbook.lib.graphics.Size2D
 import processing.core.PApplet
 import processing.core.PConstants
 
-public open class Sketch : PApplet() {
+public open class SketchApplet : PApplet() {
 
   public enum class Renderer(
     public val rawValue: String,
@@ -26,9 +26,9 @@ public open class Sketch : PApplet() {
   protected val size: Size2D
     get() = Size2D(this.width.toFloat(), this.height.toFloat())
 
-  private var plugins: List<Plugin> = emptyList()
+  private var plugins: List<SketchPlugin> = emptyList()
 
-  protected open fun configure(): List<Plugin> {
+  protected open fun configure(): List<SketchPlugin> {
     return emptyList()
   }
 

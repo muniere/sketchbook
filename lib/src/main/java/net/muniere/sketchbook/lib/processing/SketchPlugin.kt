@@ -2,7 +2,7 @@ package net.muniere.sketchbook.lib.processing
 
 import processing.core.PApplet
 
-public interface Plugin {
+public interface SketchPlugin {
   public fun onPreDraw(applet: PApplet) {
     // do nothing
   }

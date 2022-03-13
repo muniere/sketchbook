@@ -1,10 +1,10 @@
 package net.muniere.sketchbook.orb.mengerSponge
 
 import net.muniere.sketchbook.lib.drawing.Colors
-import net.muniere.sketchbook.lib.processing.Sketch
+import net.muniere.sketchbook.lib.processing.SketchApplet
 import net.muniere.sketchbook.lib.processing.background
 
-public final class Sketch : Sketch() {
+internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {

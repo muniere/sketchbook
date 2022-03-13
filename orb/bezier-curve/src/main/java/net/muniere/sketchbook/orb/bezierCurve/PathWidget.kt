@@ -4,7 +4,7 @@ import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.FloatRangeMapping
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.processing.ModelWidget
-import net.muniere.sketchbook.lib.processing.Sketch
+import net.muniere.sketchbook.lib.processing.SketchApplet
 import net.muniere.sketchbook.lib.processing.stroke
 import processing.core.PConstants
 import processing.core.PGraphics
@@ -68,7 +68,7 @@ internal class PathWidget(graphics: PGraphics) : ModelWidget<PathModel>(graphics
         PathStyle.DISCRETE -> model.points.forEach { point ->
           it.point(point.x, point.y)
         }
-        PathStyle.CONTINUOUS -> this.shape(Sketch.ShapeMode.OPEN) { graphics ->
+        PathStyle.CONTINUOUS -> this.shape(SketchApplet.ShapeMode.OPEN) { graphics ->
           model.points.forEach { point ->
             graphics.vertex(point.x, point.y)
           }

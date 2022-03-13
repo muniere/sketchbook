@@ -2,10 +2,10 @@ package net.muniere.sketchbook.orb.circleMorphing
 
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.Sketch
+import net.muniere.sketchbook.lib.processing.SketchApplet
 import net.muniere.sketchbook.lib.processing.background
 
-public final class Sketch : Sketch() {
+internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal val CANVAS_COLOR = Colors.parse("#CCCCCC")

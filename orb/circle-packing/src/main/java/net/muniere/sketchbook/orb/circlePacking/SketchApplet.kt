@@ -4,10 +4,10 @@ import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.Sketch
+import net.muniere.sketchbook.lib.processing.SketchApplet
 import net.muniere.sketchbook.lib.processing.background
 
-public final class Sketch : Sketch() {
+internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {

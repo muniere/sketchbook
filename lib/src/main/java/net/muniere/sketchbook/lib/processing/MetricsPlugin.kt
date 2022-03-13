@@ -5,7 +5,7 @@ import net.muniere.sketchbook.lib.graphics.Alignment
 import processing.core.PApplet
 import processing.core.PGraphics
 
-public final class MetricsPlugin(graphic: PGraphics) : Plugin {
+public final class MetricsPlugin(graphic: PGraphics) : SketchPlugin {
 
   public var refreshRate: Int = 10
 

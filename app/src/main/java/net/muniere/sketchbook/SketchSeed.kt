@@ -1,15 +1,15 @@
 package net.muniere.sketchbook
 
-import net.muniere.sketchbook.lib.processing.Sketch
-import net.muniere.sketchbook.orb.bezierCurve.Sketch as BezierCurveSketch
-import net.muniere.sketchbook.orb.circleMorphing.Sketch as CircleMorphingSketch
-import net.muniere.sketchbook.orb.circlePacking.Sketch as CirclePackingSketch
-import net.muniere.sketchbook.orb.fireworks.Sketch as FireworksSketch
-import net.muniere.sketchbook.orb.imageDithering.Sketch as ImageDitheringSketch
-import net.muniere.sketchbook.orb.mengerSponge.Sketch as MengerSpongeSketch
-import net.muniere.sketchbook.orb.purpleRain.Sketch as PurpleRainSketch
-import net.muniere.sketchbook.orb.starField.Sketch as StarFieldSketch
-import net.muniere.sketchbook.orb.steeringBehaviors.Sketch as SteeringBehaviorsSketch
+import androidx.fragment.app.Fragment
+import net.muniere.sketchbook.orb.bezierCurve.SketchFragment as BezierCurveSketchFragment
+import net.muniere.sketchbook.orb.circleMorphing.SketchFragment as CircleMorphingSketchFragment
+import net.muniere.sketchbook.orb.circlePacking.SketchFragment as CirclePackingSketchFragment
+import net.muniere.sketchbook.orb.fireworks.SketchFragment as FireworksSketchFragment
+import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
+import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
+import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
+import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
+import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
 
 public sealed class SketchSeed(
   public val id: Int,
@@ -25,14 +25,14 @@ public sealed class SketchSeed(
     }
   }
 
-  public abstract fun inflate(): Sketch
+  public abstract fun inflate(): Fragment
 
   public final object StarField : SketchSeed(
     id = 1,
     title = "Star Field",
     caption = "Star Field",
   ) {
-    override fun inflate() = StarFieldSketch()
+    override fun inflate() = StarFieldSketchFragment()
   }
 
   public final object MengerSponge : SketchSeed(
@@ -40,7 +40,7 @@ public sealed class SketchSeed(
     title = "Menger Sponge",
     caption = "Menger Sponge",
   ) {
-    override fun inflate() = MengerSpongeSketch()
+    override fun inflate() = MengerSpongeSketchFragment()
   }
 
   public final object PurpleRain : SketchSeed(
@@ -48,7 +48,7 @@ public sealed class SketchSeed(
     title = "Purple Rain",
     caption = "Purple Rain",
   ) {
-    override fun inflate() = PurpleRainSketch()
+    override fun inflate() = PurpleRainSketchFragment()
   }
 
   public final object Fireworks : SketchSeed(
@@ -56,7 +56,7 @@ public sealed class SketchSeed(
     title = "Fireworks",
     caption = "Fireworks",
   ) {
-    override fun inflate() = FireworksSketch()
+    override fun inflate() = FireworksSketchFragment()
   }
 
   public final object CirclePacking : SketchSeed(
@@ -64,7 +64,7 @@ public sealed class SketchSeed(
     title = "Circle Packing",
     caption = "Circle Packing",
   ) {
-    override fun inflate() = CirclePackingSketch()
+    override fun inflate() = CirclePackingSketchFragment()
   }
 
   public final object SteeringBehaviors : SketchSeed(
@@ -72,7 +72,7 @@ public sealed class SketchSeed(
     title = "Steering Behaviors",
     caption = "Steering Behaviors",
   ) {
-    override fun inflate() = SteeringBehaviorsSketch()
+    override fun inflate() = SteeringBehaviorsSketchFragment()
   }
 
   public final object CircleMorphing : SketchSeed(
@@ -80,7 +80,7 @@ public sealed class SketchSeed(
     title = "Circle Morphing",
     caption = "Circle Morphing",
   ) {
-    override fun inflate() = CircleMorphingSketch()
+    override fun inflate() = CircleMorphingSketchFragment()
   }
 
   public final object ImageDithering : SketchSeed(
@@ -88,7 +88,7 @@ public sealed class SketchSeed(
     title = "Image Dithering",
     caption = "Image Dithering",
   ) {
-    override fun inflate() = ImageDitheringSketch()
+    override fun inflate() = ImageDitheringSketchFragment()
   }
 
   public final object BezierCurve : SketchSeed(
@@ -96,7 +96,7 @@ public sealed class SketchSeed(
     title = "Bezier Curve",
     caption = "Bezier Curve",
   ) {
-    override fun inflate() = BezierCurveSketch()
+    override fun inflate() = BezierCurveSketchFragment()
   }
 
   override fun equals(other: Any?): Boolean {

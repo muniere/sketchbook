@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
-import processing.android.PFragment
 
 public final class SketchActivity : AppCompatActivity() {
 
@@ -51,9 +50,7 @@ public final class SketchActivity : AppCompatActivity() {
       )
     }
 
-    val fragment = PFragment().also {
-      it.sketch = seed.inflate()
-    }
+    val fragment = seed.inflate()
 
     this.title = SketchFormat.format(seed)
 
