@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.doOnLayout
 import androidx.fragment.app.FragmentContainerView
-import net.muniere.sketchbook.lib.graphics.Size2D
 import processing.android.PFragment
 
 public final class SketchActivity : AppCompatActivity() {
@@ -51,25 +49,19 @@ public final class SketchActivity : AppCompatActivity() {
         ViewGroup.LayoutParams.MATCH_PARENT,
         ViewGroup.LayoutParams.MATCH_PARENT,
       )
-      it.doOnLayout { view ->
-        val size = Size2D(
-          width = view.width.toFloat(),
-          height = view.height.toFloat(),
-        )
+    }
 
-        val fragment = PFragment().also {
-          it.sketch = seed.inflate(size)
-        }
-
-        this.supportFragmentManager
-          .beginTransaction()
-          .add(view.id, fragment)
-          .commit()
-      }
+    val fragment = PFragment().also {
+      it.sketch = seed.inflate()
     }
 
     this.title = SketchFormat.format(seed)
 
     this.setContentView(root)
+
+    this.supportFragmentManager
+      .beginTransaction()
+      .add(root.id, fragment)
+      .commit()
   }
 }

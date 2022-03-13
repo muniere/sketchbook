@@ -1,6 +1,5 @@
 package net.muniere.sketchbook
 
-import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.Sketch
 import net.muniere.sketchbook.orb.bezierCurve.Sketch as BezierCurveSketch
 import net.muniere.sketchbook.orb.circleMorphing.Sketch as CircleMorphingSketch
@@ -26,14 +25,14 @@ public sealed class SketchSeed(
     }
   }
 
-  public abstract fun inflate(size: Size2D): Sketch
+  public abstract fun inflate(): Sketch
 
   public final object StarField : SketchSeed(
     id = 1,
     title = "Star Field",
     caption = "Star Field",
   ) {
-    override fun inflate(size: Size2D) = StarFieldSketch(size)
+    override fun inflate() = StarFieldSketch()
   }
 
   public final object MengerSponge : SketchSeed(
@@ -41,7 +40,7 @@ public sealed class SketchSeed(
     title = "Menger Sponge",
     caption = "Menger Sponge",
   ) {
-    override fun inflate(size: Size2D) = MengerSpongeSketch(size)
+    override fun inflate() = MengerSpongeSketch()
   }
 
   public final object PurpleRain : SketchSeed(
@@ -49,7 +48,7 @@ public sealed class SketchSeed(
     title = "Purple Rain",
     caption = "Purple Rain",
   ) {
-    override fun inflate(size: Size2D) = PurpleRainSketch(size)
+    override fun inflate() = PurpleRainSketch()
   }
 
   public final object Fireworks : SketchSeed(
@@ -57,7 +56,7 @@ public sealed class SketchSeed(
     title = "Fireworks",
     caption = "Fireworks",
   ) {
-    override fun inflate(size: Size2D) = FireworksSketch(size)
+    override fun inflate() = FireworksSketch()
   }
 
   public final object CirclePacking : SketchSeed(
@@ -65,7 +64,7 @@ public sealed class SketchSeed(
     title = "Circle Packing",
     caption = "Circle Packing",
   ) {
-    override fun inflate(size: Size2D) = CirclePackingSketch(size)
+    override fun inflate() = CirclePackingSketch()
   }
 
   public final object SteeringBehaviors : SketchSeed(
@@ -73,7 +72,7 @@ public sealed class SketchSeed(
     title = "Steering Behaviors",
     caption = "Steering Behaviors",
   ) {
-    override fun inflate(size: Size2D) = SteeringBehaviorsSketch(size)
+    override fun inflate() = SteeringBehaviorsSketch()
   }
 
   public final object CircleMorphing : SketchSeed(
@@ -81,7 +80,7 @@ public sealed class SketchSeed(
     title = "Circle Morphing",
     caption = "Circle Morphing",
   ) {
-    override fun inflate(size: Size2D) = CircleMorphingSketch(size)
+    override fun inflate() = CircleMorphingSketch()
   }
 
   public final object ImageDithering : SketchSeed(
@@ -89,7 +88,7 @@ public sealed class SketchSeed(
     title = "Image Dithering",
     caption = "Image Dithering",
   ) {
-    override fun inflate(size: Size2D) = ImageDitheringSketch(size)
+    override fun inflate() = ImageDitheringSketch()
   }
 
   public final object BezierCurve : SketchSeed(
@@ -97,7 +96,7 @@ public sealed class SketchSeed(
     title = "Bezier Curve",
     caption = "Bezier Curve",
   ) {
-    override fun inflate(size: Size2D) = BezierCurveSketch(size)
+    override fun inflate() = BezierCurveSketch()
   }
 
   override fun equals(other: Any?): Boolean {

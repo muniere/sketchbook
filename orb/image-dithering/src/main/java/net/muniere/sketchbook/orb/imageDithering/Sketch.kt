@@ -5,7 +5,7 @@ import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.Sketch
 
-public final class Sketch(size: Size2D) : Sketch(size) {
+public final class Sketch : Sketch() {
 
   private object Params {
     internal object Image {

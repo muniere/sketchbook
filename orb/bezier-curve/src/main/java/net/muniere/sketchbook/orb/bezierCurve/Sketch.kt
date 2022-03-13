@@ -4,7 +4,6 @@ import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
-import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.physics.Velocity2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.Sketch
@@ -12,7 +11,7 @@ import net.muniere.sketchbook.lib.processing.background
 import processing.core.PVector
 import kotlin.random.Random
 
-public final class Sketch(size: Size2D) : Sketch(size) {
+public final class Sketch : Sketch() {
 
   private object Params {
     internal object Canvas {
