@@ -5,6 +5,7 @@ import net.muniere.sketchbook.orb.bezierCurve.SketchFragment as BezierCurveSketc
 import net.muniere.sketchbook.orb.circleMorphing.SketchFragment as CircleMorphingSketchFragment
 import net.muniere.sketchbook.orb.circlePacking.SketchFragment as CirclePackingSketchFragment
 import net.muniere.sketchbook.orb.fireworks.SketchFragment as FireworksSketchFragment
+import net.muniere.sketchbook.orb.fourierSeries.SketchFragment as FourierSeriesSketchFragment
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
@@ -89,6 +90,14 @@ public sealed class SketchSeed(
     caption = "Image Dithering",
   ) {
     override fun inflate() = ImageDitheringSketchFragment()
+  }
+
+  public final object FourierSeries : SketchSeed(
+    id = 125,
+    title = "Fourier Series",
+    caption = "Fourier Series",
+  ) {
+    override fun inflate() = FourierSeriesSketchFragment()
   }
 
   public final object BezierCurve : SketchSeed(
