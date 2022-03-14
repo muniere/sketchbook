@@ -1,12 +1,11 @@
 package net.muniere.sketchbook.orb.imageDithering
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.commit
@@ -14,30 +13,12 @@ import processing.android.PFragment
 
 public final class SketchFragment : Fragment() {
 
-  override fun onAttach(context: Context) {
-    super.onAttach(context)
-
-    val callback = this.requireActivity().onBackPressedDispatcher.addCallback(this) {
-      childFragmentManager.popBackStack()
-    }
-
-    callback.isEnabled = false
-
-    this.childFragmentManager.addOnBackStackChangedListener {
-      callback.isEnabled = this.childFragmentManager.backStackEntryCount > 0
-    }
-
-    this.childFragmentManager.addFragmentOnAttachListener { _, fragment ->
-      when (fragment) {
-        is LauncherFragment -> {
-          fragment.setOnResultListener { uri ->
-            this.launchApplet(uri)
-          }
-        }
-        is PFragment -> {
-          /* no-op */
-        }
-      }
+  private val launcher = this.registerForActivityResult(
+    ActivityResultContracts.GetContent()
+  ) { result ->
+    when (result) {
+      null -> this.requireActivity().finish()
+      else -> this.launchApplet(result)
     }
   }
 
@@ -50,9 +31,7 @@ public final class SketchFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    this.childFragmentManager.commit {
-      add(view.id, LauncherFragment())
-    }
+    this.launcher.launch("image/*")
   }
 
   private fun launchApplet(uri: Uri) {
@@ -62,8 +41,7 @@ public final class SketchFragment : Fragment() {
     }
 
     this.childFragmentManager.commit {
-      setCustomAnimations(R.anim.push_enter, R.anim.push_exit, R.anim.pop_enter, R.anim.pop_exit)
-      add(container.id, fragment)
+      replace(container.id, fragment)
       addToBackStack(null)
     }
   }
