@@ -1,11 +1,13 @@
 package net.muniere.sketchbook
 
 import androidx.fragment.app.Fragment
+import net.muniere.sketchbook.orb.fourierTransform.SketchMode
 import net.muniere.sketchbook.orb.bezierCurve.SketchFragment as BezierCurveSketchFragment
 import net.muniere.sketchbook.orb.circleMorphing.SketchFragment as CircleMorphingSketchFragment
 import net.muniere.sketchbook.orb.circlePacking.SketchFragment as CirclePackingSketchFragment
 import net.muniere.sketchbook.orb.fireworks.SketchFragment as FireworksSketchFragment
 import net.muniere.sketchbook.orb.fourierSeries.SketchFragment as FourierSeriesSketchFragment
+import net.muniere.sketchbook.orb.fourierTransform.SketchFragment as FourierTransformSketchFragment
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
@@ -13,7 +15,7 @@ import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFra
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
 
 public sealed class SketchSeed(
-  public val id: Int,
+  public val id: String,
   public val title: String,
   public val caption: String,
 ) {
@@ -29,7 +31,7 @@ public sealed class SketchSeed(
   public abstract fun inflate(): Fragment
 
   public final object StarField : SketchSeed(
-    id = 1,
+    id = "001",
     title = "Star Field",
     caption = "Star Field",
   ) {
@@ -37,7 +39,7 @@ public sealed class SketchSeed(
   }
 
   public final object MengerSponge : SketchSeed(
-    id = 2,
+    id = "002",
     title = "Menger Sponge",
     caption = "Menger Sponge",
   ) {
@@ -45,7 +47,7 @@ public sealed class SketchSeed(
   }
 
   public final object PurpleRain : SketchSeed(
-    id = 4,
+    id = "004",
     title = "Purple Rain",
     caption = "Purple Rain",
   ) {
@@ -53,7 +55,7 @@ public sealed class SketchSeed(
   }
 
   public final object Fireworks : SketchSeed(
-    id = 27,
+    id = "027",
     title = "Fireworks",
     caption = "Fireworks",
   ) {
@@ -61,7 +63,7 @@ public sealed class SketchSeed(
   }
 
   public final object CirclePacking : SketchSeed(
-    id = 50,
+    id = "050",
     title = "Circle Packing",
     caption = "Circle Packing",
   ) {
@@ -69,7 +71,7 @@ public sealed class SketchSeed(
   }
 
   public final object SteeringBehaviors : SketchSeed(
-    id = 59,
+    id = "059",
     title = "Steering Behaviors",
     caption = "Steering Behaviors",
   ) {
@@ -77,7 +79,7 @@ public sealed class SketchSeed(
   }
 
   public final object CircleMorphing : SketchSeed(
-    id = 81,
+    id = "081",
     title = "Circle Morphing",
     caption = "Circle Morphing",
   ) {
@@ -85,7 +87,7 @@ public sealed class SketchSeed(
   }
 
   public final object ImageDithering : SketchSeed(
-    id = 90,
+    id = "090",
     title = "Image Dithering",
     caption = "Image Dithering",
   ) {
@@ -93,15 +95,31 @@ public sealed class SketchSeed(
   }
 
   public final object FourierSeries : SketchSeed(
-    id = 125,
+    id = "125",
     title = "Fourier Series",
     caption = "Fourier Series",
   ) {
     override fun inflate() = FourierSeriesSketchFragment()
   }
 
+  public final object FourierTransformReal : SketchSeed(
+    id = "130-a",
+    title = "Fourier Transform",
+    caption = "Fourier Transform with Real Numbers",
+  ) {
+    override fun inflate() = FourierTransformSketchFragment.newInstance(SketchMode.REAL)
+  }
+
+  public final object FourierTransformComplex : SketchSeed(
+    id = "130-b",
+    title = "Fourier Transform",
+    caption = "Fourier Transform with Complex Numbers",
+  ) {
+    override fun inflate() = FourierTransformSketchFragment.newInstance(SketchMode.COMPLEX)
+  }
+
   public final object BezierCurve : SketchSeed(
-    id = 163,
+    id = "163",
     title = "Bezier Curve",
     caption = "Bezier Curve",
   ) {
@@ -113,7 +131,7 @@ public sealed class SketchSeed(
   }
 
   override fun hashCode(): Int {
-    var result = id
+    var result = id.hashCode()
     result = 31 * result + title.hashCode()
     result = 31 * result + caption.hashCode()
     return result

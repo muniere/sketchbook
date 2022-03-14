@@ -13,20 +13,20 @@ public final class SketchActivity : AppCompatActivity() {
   // Genome
   //
   public final class Genome(
-    public val id: Int,
+    public val id: String,
   ) {
-    private enum class Keys {
+    private enum class Key {
       ID,
     }
 
     companion object {
       public fun from(intent: Intent) = Genome(
-        id = intent.getIntExtra(Keys.ID.name, 0),
+        id = intent.getStringExtra(Key.ID.name).let(::checkNotNull),
       )
     }
 
     public fun toBundle() = Bundle().also {
-      it.putInt(Keys.ID.name, this.id)
+      it.putString(Key.ID.name, this.id)
     }
   }
 

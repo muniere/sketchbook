@@ -45,6 +45,7 @@ dependencies {
   implementation(project(":orb:circle-packing"))
   implementation(project(":orb:fireworks"))
   implementation(project(":orb:fourier-series"))
+  implementation(project(":orb:fourier-transform"))
   implementation(project(":orb:image-dithering"))
   implementation(project(":orb:menger-sponge"))
   implementation(project(":orb:purple-rain"))

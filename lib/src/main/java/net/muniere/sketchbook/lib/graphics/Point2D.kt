@@ -1,5 +1,6 @@
 package net.muniere.sketchbook.lib.graphics
 
+import java.nio.channels.FileLock
 import kotlin.math.cos
 import kotlin.math.pow
 import kotlin.math.sin
@@ -22,6 +23,13 @@ public final data class Point2D(
     public fun dist(a: Point2D, b: Point2D): Float {
       return sqrt((a.x - b.x).pow(2) + (a.y - b.y).pow(2))
     }
+  }
+
+  public fun movingBy(x: Float = 0.0F, y: Float = 0.0F): Point2D {
+    return Point2D(
+      x = this.x + x,
+      y = this.y + y,
+    )
   }
 
   public operator fun plus(delta: Move2D): Point2D {

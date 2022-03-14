@@ -32,6 +32,7 @@ include(
   ":orb:circle-packing",
   ":orb:fireworks",
   ":orb:fourier-series",
+  ":orb:fourier-transform",
   ":orb:image-dithering",
   ":orb:menger-sponge",
   ":orb:purple-rain",

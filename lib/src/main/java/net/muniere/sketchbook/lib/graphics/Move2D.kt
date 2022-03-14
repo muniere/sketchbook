@@ -1,8 +1,8 @@
 package net.muniere.sketchbook.lib.graphics
 
 public final data class Move2D(
-  public var x: Float,
-  public var y: Float,
+  public var x: Float = 0.0F,
+  public var y: Float = 0.0F,
 ) {
   public companion object {
     public fun zero() = Move2D(0.0F, 0.0F)
