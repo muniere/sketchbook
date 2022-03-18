@@ -4,10 +4,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -37,21 +41,30 @@ public fun SketchTile(
   Box(
     Modifier.clickable(onClick = onClick)
   ) {
-    Column(
+    Row(
       Modifier.padding(
         horizontal = 16.dp,
         vertical = 12.dp
-      )
+      ),
+      verticalAlignment = Alignment.CenterVertically,
     ) {
-      Text(
-        text = seed.let(SketchFormat::format),
-        style = MaterialTheme.typography.body1,
-      )
-      Text(
-        text = seed.caption,
-        style = MaterialTheme.typography.caption,
-        color = Color.Gray
-      )
+      Icon(seed.icon, null)
+
+      Spacer(Modifier.width(12.dp))
+
+      Column {
+        Row {
+          Text(
+            text = seed.let(SketchFormat::format),
+            style = MaterialTheme.typography.body1,
+          )
+        }
+        Text(
+          text = seed.caption,
+          style = MaterialTheme.typography.caption,
+          color = Color.Gray
+        )
+      }
     }
 
     Box(
