@@ -1,4 +1,11 @@
 pluginManagement {
+  val artifacts = mapOf(
+    "com.android.application" to Pair("com.android.tools.build", "gradle"),
+    "com.android.library" to Pair("com.android.tools.build", "gradle"),
+    "org.jetbrains.kotlin.android" to Pair("org.jetbrains.kotlin", "kotlin-gradle-plugin"),
+    "org.jetbrains.kotlin.plugin.serialization" to Pair("org.jetbrains.kotlin", "kotlin-serialization")
+  )
+
   repositories {
     gradlePluginPortal()
     google()
@@ -7,9 +14,8 @@ pluginManagement {
 
   resolutionStrategy {
     eachPlugin {
-      when (requested.id.namespace) {
-        "com.android" -> useModule("com.android.tools.build:gradle:${requested.version}")
-        "com.google.gms" -> useModule("com.google.gms:${requested.id.name}:${requested.version}")
+      artifacts[requested.id.id]?.let { (group, artifact) ->
+        useModule("${group}:${artifact}:${requested.version}")
       }
     }
   }
