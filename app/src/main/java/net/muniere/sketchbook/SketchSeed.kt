@@ -6,6 +6,7 @@ import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material.icons.outlined.Draw
 import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material.icons.outlined.NearMe
+import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
 import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material.icons.outlined.Timeline
@@ -23,6 +24,7 @@ import net.muniere.sketchbook.orb.fourierSeries.SketchFragment as FourierSeriesS
 import net.muniere.sketchbook.orb.fourierTransform.SketchFragment as FourierTransformSketchFragment
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
+import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
@@ -96,6 +98,15 @@ public sealed class SketchSeed(
     caption = "Steering Behaviors",
   ) {
     override fun inflate() = SteeringBehaviorsSketchFragment()
+  }
+
+  public final object NearestNeighbor : SketchSeed(
+    id = "070",
+    icon = Icons.Outlined.People,
+    title = "Nearest Neighbor",
+    caption = "Nearest Neighbor",
+  ) {
+    override fun inflate() = NearestNeighborSketchFragment()
   }
 
   public final object CircleMorphing : SketchSeed(

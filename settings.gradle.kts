@@ -41,6 +41,7 @@ include(
   ":orb:fourier-transform",
   ":orb:image-dithering",
   ":orb:menger-sponge",
+  ":orb:nearest-neighbor",
   ":orb:purple-rain",
   ":orb:star-field",
   ":orb:steering-behaviors",
