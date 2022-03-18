@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material3.Scaffold
-import com.google.android.material.composethemeadapter.MdcTheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 
 public final class MainActivity : AppCompatActivity() {
 
@@ -13,7 +13,7 @@ public final class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     this.setContent {
-      MdcTheme {
+      MaterialTheme {
         Scaffold {
           SketchList(SketchSeed.values()) { seed ->
             val intent = Intent(this, SketchActivity::class.java).also {

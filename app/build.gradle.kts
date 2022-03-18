@@ -61,7 +61,8 @@ dependencies {
 
   implementation("androidx.compose.ui:ui:1.1.1")
   implementation("androidx.compose.ui:ui-tooling:1.1.1")
-  implementation("androidx.compose.material3:material3:1.0.0-alpha07")
+  implementation("androidx.compose.foundation:foundation:1.1.1")
+  implementation("androidx.compose.material:material:1.1.1")
 
   implementation("com.google.android.material:material:1.5.0")
   implementation("com.google.android.material:compose-theme-adapter:1.1.5")
