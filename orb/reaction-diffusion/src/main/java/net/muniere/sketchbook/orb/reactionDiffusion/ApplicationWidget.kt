@@ -7,6 +7,10 @@ internal class ApplicationWidget(graphics: PGraphics) : ModelWidget<ApplicationM
 
   private val grid = GridWidget(graphics)
 
+  public var scale: Int
+    get() = this.grid.scale
+    set(value) = this.grid::scale.set(value)
+
   override fun doDraw(model: ApplicationModel) {
     this.grid.model = model.grid
     this.grid.draw()

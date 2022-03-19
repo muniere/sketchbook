@@ -8,21 +8,23 @@ import net.muniere.sketchbook.lib.math.Dimen
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.SketchApplet
 import net.muniere.sketchbook.lib.processing.background
+import processing.core.PConstants
 
 internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
       internal val COLOR = Colors.parse("#333333")
-      internal const val LIMIT = 360
+      internal const val SCALE = 4
     }
 
     internal object Diffusion {
+      internal const val SIZE = 240
+      internal const val SPEED = 1
       internal const val A = 1.0F
       internal const val B = 0.5F
       internal const val FEED = 0.055F
       internal const val KILL = 0.062F
-      internal const val SPEED = 1
     }
 
     internal object Seed {
@@ -38,9 +40,11 @@ internal final class SketchApplet : SketchApplet() {
   )
 
   override fun settings() {
-    val size = minOf(this.displayWidth, this.displayHeight, Params.Canvas.LIMIT)
-
-    this.size(size, size, P2D)
+    this.size(
+      Params.Diffusion.SIZE * Params.Canvas.SCALE,
+      Params.Diffusion.SIZE * Params.Canvas.SCALE,
+      PConstants.P2D,
+    )
   }
 
   override fun doSetup() {
@@ -49,14 +53,14 @@ internal final class SketchApplet : SketchApplet() {
     this.pixelDensity = 1
 
     val dimen = Dimen(
-      width = this.width,
-      height = this.height,
+      width = Params.Diffusion.SIZE,
+      height = Params.Diffusion.SIZE,
     )
 
     val seed = Rect2D(
       origin = Point2D(
-        x = this.width / 2 - Params.Seed.RADIUS,
-        y = this.height / 2 - Params.Seed.RADIUS,
+        x = dimen.width / 2 - Params.Seed.RADIUS,
+        y = dimen.height / 2 - Params.Seed.RADIUS,
       ),
       size = Size2D.square(Params.Seed.RADIUS * 2),
     )
@@ -77,6 +81,7 @@ internal final class SketchApplet : SketchApplet() {
 
     this.widget = ApplicationWidget(this.g).also {
       it.model = this.model
+      it.scale = Params.Canvas.SCALE
     }
   }
 
