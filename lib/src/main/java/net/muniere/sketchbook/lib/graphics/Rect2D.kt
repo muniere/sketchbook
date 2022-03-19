@@ -68,4 +68,13 @@ public final data class Rect2D(
     this.origin = other.origin
     this.size = other.size
   }
+
+  public fun contains(point: Point2D): Boolean {
+    return this.left <= point.x && point.x < this.right && this.top <= point.y && point.y < this.bottom;
+  }
+
+  public fun intersects(other: Rect2D): Boolean {
+    return (this.left <= other.right && other.left <= this.right) && (this.top <= other.bottom && other.top <= this.bottom);
+  }
+
 }

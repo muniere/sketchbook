@@ -43,6 +43,7 @@ include(
   ":orb:menger-sponge",
   ":orb:nearest-neighbor",
   ":orb:purple-rain",
+  ":orb:reaction-diffusion",
   ":orb:star-field",
   ":orb:steering-behaviors",
   ":lib",

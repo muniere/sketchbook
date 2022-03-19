@@ -1,6 +1,7 @@
 package net.muniere.sketchbook
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Api
 import androidx.compose.material.icons.outlined.BubbleChart
 import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material.icons.outlined.Draw
@@ -26,6 +27,7 @@ import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitherin
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
 import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
+import net.muniere.sketchbook.orb.reactionDiffusion.SketchFragment as ReactionDiffusionSketchFragment
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
 
@@ -71,6 +73,15 @@ public sealed class SketchSeed(
     caption = "Purple Rain",
   ) {
     override fun inflate() = PurpleRainSketchFragment()
+  }
+
+  public final object ReactionDiffusion : SketchSeed(
+    id = "013",
+    icon = Icons.Outlined.Api,
+    title = "Reaction Diffusion",
+    caption = "Reaction Diffusion",
+  ) {
+    override fun inflate() = ReactionDiffusionSketchFragment()
   }
 
   public final object Fireworks : SketchSeed(
