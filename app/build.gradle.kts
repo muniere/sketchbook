@@ -51,6 +51,7 @@ dependencies {
   implementation(project(":orb:image-dithering"))
   implementation(project(":orb:menger-sponge"))
   implementation(project(":orb:nearest-neighbor"))
+  implementation(project(":orb:path-finding"))
   implementation(project(":orb:purple-rain"))
   implementation(project(":orb:reaction-diffusion"))
   implementation(project(":orb:star-field"))

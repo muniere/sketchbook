@@ -42,6 +42,7 @@ include(
   ":orb:image-dithering",
   ":orb:menger-sponge",
   ":orb:nearest-neighbor",
+  ":orb:path-finding",
   ":orb:purple-rain",
   ":orb:reaction-diffusion",
   ":orb:star-field",

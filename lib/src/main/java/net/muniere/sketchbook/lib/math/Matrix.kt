@@ -91,6 +91,12 @@ public final class Matrix<T> private constructor(
     this._values[row][column] = value
   }
 
+  public fun forEach(action: (value: T) -> Unit) {
+    this._values.forEach { values ->
+      values.forEach(action)
+    }
+  }
+
   public fun forEachIndexed(action: (value: T, spot: Spot) -> Unit) {
     this._values.forEachIndexed { row, values ->
       values.forEachIndexed { column, value ->

@@ -9,6 +9,7 @@ import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material.icons.outlined.NearMe
 import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material.icons.outlined.Timeline
 import androidx.compose.material.icons.outlined.Umbrella
@@ -26,6 +27,7 @@ import net.muniere.sketchbook.orb.fourierTransform.SketchFragment as FourierTran
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
 import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
+import net.muniere.sketchbook.orb.pathFinding.SketchFragment as PathFindingSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
 import net.muniere.sketchbook.orb.reactionDiffusion.SketchFragment as ReactionDiffusionSketchFragment
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
@@ -100,6 +102,15 @@ public sealed class SketchSeed(
     caption = "Circle Packing",
   ) {
     override fun inflate() = CirclePackingSketchFragment()
+  }
+
+  public final object PathFinding : SketchSeed(
+    id = "051",
+    icon = Icons.Outlined.Search,
+    title = "Path Finding",
+    caption = "Path Finding with A* algorithm",
+  ) {
+    override fun inflate() = PathFindingSketchFragment()
   }
 
   public final object SteeringBehaviors : SketchSeed(
