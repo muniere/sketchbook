@@ -5,12 +5,12 @@ import android.net.Uri
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import processing.core.PImage
 
 internal final class SketchApplet(
   private val uri: Uri,
-) : SketchApplet() {
+) : SApplet() {
 
   private object Params {
     internal object Dither {

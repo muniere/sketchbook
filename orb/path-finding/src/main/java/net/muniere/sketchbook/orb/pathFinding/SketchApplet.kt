@@ -5,11 +5,11 @@ import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.math.Dimen
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
 import kotlin.random.Random
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   internal fun interface OnSuccessListener {
     public fun onSuccess()

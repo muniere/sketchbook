@@ -5,11 +5,11 @@ import net.muniere.sketchbook.lib.graphics.Move2D
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.physics.Velocity2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
 import kotlin.random.Random
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   private object Params {
     internal object Canvas {

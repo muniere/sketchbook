@@ -6,13 +6,13 @@ import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.math.Complex
 import net.muniere.sketchbook.lib.processing.FrameClock
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
 import net.muniere.sketchbook.orb.fourierTransform.PathModel
 import net.muniere.sketchbook.orb.fourierTransform.SeriesModel
 import net.muniere.sketchbook.orb.fourierTransform.io.PathLoader
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   private object Params {
     internal object Canvas {

@@ -7,10 +7,10 @@ import net.muniere.sketchbook.lib.graphics.Point3D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.map
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   private lateinit var model: ApplicationModel
   private lateinit var widget: ApplicationWidget

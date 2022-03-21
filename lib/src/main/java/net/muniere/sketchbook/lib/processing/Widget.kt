@@ -15,7 +15,7 @@ public abstract class Widget(
     return result
   }
 
-  protected fun shape(mode: SketchApplet.ShapeMode = SketchApplet.ShapeMode.CLOSED, action: (PGraphics) -> Unit) {
+  protected fun shape(mode: SApplet.ShapeMode = SApplet.ShapeMode.CLOSED, action: (PGraphics) -> Unit) {
     this.g.beginShape()
     action.invoke(this.g)
     this.g.endShape(mode.rawValue)

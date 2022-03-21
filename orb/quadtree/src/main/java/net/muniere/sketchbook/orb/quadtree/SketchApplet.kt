@@ -6,13 +6,13 @@ import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.physics.Force2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.SketchApplet
-import net.muniere.sketchbook.lib.processing.SketchPlugin
+import net.muniere.sketchbook.lib.processing.SApplet
+import net.muniere.sketchbook.lib.processing.SPlugin
 import net.muniere.sketchbook.lib.processing.background
 import processing.core.PConstants
 import kotlin.random.Random
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   private object Params {
     internal object Canvas {
@@ -38,7 +38,7 @@ internal final class SketchApplet : SketchApplet() {
   private lateinit var model: ApplicationModel
   private lateinit var widget: ApplicationWidget
 
-  override fun configure() = listOf<SketchPlugin>(
+  override fun configure() = listOf<SPlugin>(
     MetricsPlugin(this.g).also {
       it.textColor = Params.Metrics.TEXT_COLOR
     }

@@ -2,11 +2,11 @@ package net.muniere.sketchbook.orb.lifeGame
 
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.math.Dimen
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
 import kotlin.random.Random
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   private object Params {
     internal object Canvas {

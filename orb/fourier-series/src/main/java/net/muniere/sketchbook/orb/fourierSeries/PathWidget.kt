@@ -2,7 +2,7 @@ package net.muniere.sketchbook.orb.fourierSeries
 
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.processing.ModelWidget
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.stroke
 import processing.core.PGraphics
 
@@ -36,7 +36,7 @@ internal final class PathWidget(graphics: PGraphics) : ModelWidget<PathModel>(gr
       it.noFill()
       it.stroke(model.color)
 
-      this.shape(SketchApplet.ShapeMode.OPEN) {
+      this.shape(SApplet.ShapeMode.OPEN) {
         model.values.forEachIndexed { i, value ->
           val x = this.origin.x + i * this.scaleX
           val y = this.origin.y + value * this.scaleY

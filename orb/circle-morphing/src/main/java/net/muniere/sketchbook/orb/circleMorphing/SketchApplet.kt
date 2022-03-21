@@ -2,10 +2,10 @@ package net.muniere.sketchbook.orb.circleMorphing
 
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
-import net.muniere.sketchbook.lib.processing.SketchApplet
+import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
 
-internal final class SketchApplet : SketchApplet() {
+internal final class SketchApplet : SApplet() {
 
   private object Params {
     internal object Canvas {
