@@ -1,8 +1,8 @@
 package net.muniere.sketchbook.orb.nearestNeighbor
 
-import net.muniere.sketchbook.orb.nearestNeighbor.io.PersonRecord
-import net.muniere.sketchbook.orb.nearestNeighbor.domain.RatingModel
 import net.muniere.sketchbook.orb.nearestNeighbor.domain.PersonModel
+import net.muniere.sketchbook.orb.nearestNeighbor.domain.RatingModel
+import net.muniere.sketchbook.orb.nearestNeighbor.io.PersonRecord
 
 internal object DataConversions {
 

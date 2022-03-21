@@ -27,7 +27,7 @@ internal final class PathFactory {
       return this.paint.typeface
     }
     set(value) {
-      this.paint.typeface = typeFace
+      this.paint.typeface = value
     }
 
   public var stepSize: Float = 1.0F

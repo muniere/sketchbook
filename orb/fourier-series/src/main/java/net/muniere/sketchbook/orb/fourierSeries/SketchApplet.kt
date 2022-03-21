@@ -5,7 +5,6 @@ import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.processing.FrameClock
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.SketchApplet
-import net.muniere.sketchbook.lib.processing.SketchPlugin
 import net.muniere.sketchbook.lib.processing.background
 
 internal final class SketchApplet : SketchApplet() {

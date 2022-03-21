@@ -1,7 +1,7 @@
 package net.muniere.sketchbook.orb.nearestNeighbor
 
-import net.muniere.sketchbook.orb.nearestNeighbor.domain.RatingModel
 import net.muniere.sketchbook.orb.nearestNeighbor.domain.PersonModel
+import net.muniere.sketchbook.orb.nearestNeighbor.domain.RatingModel
 
 internal final data class FormState(
   internal val I: Int? = null,

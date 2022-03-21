@@ -15,7 +15,7 @@ internal class SolverPaint(
       return when (solver.state) {
         SolverModel.State.RUNNING -> this.palette.runningColor
         SolverModel.State.FAILURE -> this.palette.abortColor
-        SolverModel.State.SUCCESS-> this.palette.answerColor
+        SolverModel.State.SUCCESS -> this.palette.answerColor
       }
     }
     if (this.solver.closedSet.contains(node)) {

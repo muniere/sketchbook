@@ -2,10 +2,8 @@ package net.muniere.sketchbook.orb.fourierSeries
 
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Line2D
-import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.line
 import net.muniere.sketchbook.lib.processing.ModelWidget
-import net.muniere.sketchbook.lib.processing.Widget
 import net.muniere.sketchbook.lib.processing.stroke
 import processing.core.PGraphics
 

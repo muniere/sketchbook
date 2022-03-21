@@ -1,7 +1,7 @@
 package net.muniere.sketchbook.orb.fourierTransform.io
 
 internal final data class PathSchema(
-  public val points: List<PointSchema>
+  public val points: List<PointSchema>,
 ) {
   public val size: Int
     get() = this.points.size

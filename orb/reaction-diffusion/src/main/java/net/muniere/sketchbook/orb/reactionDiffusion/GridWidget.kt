@@ -15,7 +15,6 @@ internal class GridWidget(graphics: PGraphics) : ModelWidget<GridModel>(graphics
 
       model.forEachIndexed { cell, row, column ->
         val value = 255 - ((cell.a - cell.b) * 255.0F).toInt()
-        val matrixIndex = matrixWidth * row + column
         val scaledIndex = scaledWidth * (row * this.scale) + (column * this.scale)
 
         repeat(this.scale) { rowOffset ->

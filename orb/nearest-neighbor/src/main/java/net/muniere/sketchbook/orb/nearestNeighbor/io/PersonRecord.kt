@@ -2,8 +2,6 @@ package net.muniere.sketchbook.orb.nearestNeighbor.io
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.math.pow
-import kotlin.math.sqrt
 
 @Serializable
 internal data class PersonRecord(
