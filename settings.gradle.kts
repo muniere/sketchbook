@@ -45,6 +45,7 @@ include(
   ":orb:nearest-neighbor",
   ":orb:path-finding",
   ":orb:purple-rain",
+  ":orb:quadtree",
   ":orb:reaction-diffusion",
   ":orb:star-field",
   ":orb:steering-behaviors",

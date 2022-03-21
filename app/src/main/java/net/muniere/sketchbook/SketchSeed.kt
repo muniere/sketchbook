@@ -16,6 +16,7 @@ import androidx.compose.material.icons.outlined.Timeline
 import androidx.compose.material.icons.outlined.Umbrella
 import androidx.compose.material.icons.outlined.ViewInAr
 import androidx.compose.material.icons.outlined.Waves
+import androidx.compose.material.icons.outlined.Window
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.fragment.app.Fragment
 import net.muniere.sketchbook.orb.fourierTransform.SketchMode
@@ -31,6 +32,7 @@ import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSke
 import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
 import net.muniere.sketchbook.orb.pathFinding.SketchFragment as PathFindingSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
+import net.muniere.sketchbook.orb.quadtree.SketchFragment as QuadtreeSketchFragment
 import net.muniere.sketchbook.orb.reactionDiffusion.SketchFragment as ReactionDiffusionSketchFragment
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
@@ -158,6 +160,15 @@ public sealed class SketchSeed(
     caption = "Image Dithering",
   ) {
     override fun inflate() = ImageDitheringSketchFragment()
+  }
+
+  public final object Quadtree : SketchSeed(
+    id = "098",
+    icon = Icons.Outlined.Window,
+    title = "Quadtree",
+    caption = "Collision Detection by Quadtree",
+  ) {
+    override fun inflate() = QuadtreeSketchFragment()
   }
 
   public final object FourierSeries : SketchSeed(

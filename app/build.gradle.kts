@@ -54,6 +54,7 @@ dependencies {
   implementation(project(":orb:nearest-neighbor"))
   implementation(project(":orb:path-finding"))
   implementation(project(":orb:purple-rain"))
+  implementation(project(":orb:quadtree"))
   implementation(project(":orb:reaction-diffusion"))
   implementation(project(":orb:star-field"))
   implementation(project(":orb:steering-behaviors"))

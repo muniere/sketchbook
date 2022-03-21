@@ -27,6 +27,12 @@ public final data class Rect2D(
   public val height: Float
     get() = this.size.height
 
+  public val center: Point2D
+    get() = Point2D(
+      x = this.origin.x + this.size.width / 2,
+      y = this.origin.y + this.size.height / 2,
+    )
+
   public fun with(
     origin: Point2D? = null,
     size: Size2D? = null,
