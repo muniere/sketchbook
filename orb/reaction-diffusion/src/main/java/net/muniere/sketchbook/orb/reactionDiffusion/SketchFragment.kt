@@ -1,8 +1,8 @@
 package net.muniere.sketchbook.orb.reactionDiffusion
 
-import processing.android.PFragment
+import net.muniere.sketchbook.lib.processing.SFragment
 
-public final class SketchFragment : PFragment() {
+public final class SketchFragment : SFragment() {
   init {
     this.sketch = SketchApplet()
   }

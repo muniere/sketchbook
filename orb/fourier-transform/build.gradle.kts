@@ -32,6 +32,5 @@ android {
 dependencies {
   api(project(":lib"))
 
-  implementation("androidx.fragment:fragment-ktx:1.4.1")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 }

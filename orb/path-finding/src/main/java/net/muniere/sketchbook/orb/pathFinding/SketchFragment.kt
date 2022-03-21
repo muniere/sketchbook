@@ -6,9 +6,9 @@ import android.os.Handler
 import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
-import processing.android.PFragment
+import net.muniere.sketchbook.lib.processing.SFragment
 
-public final class SketchFragment : PFragment() {
+public final class SketchFragment : SFragment() {
   init {
     this.sketch = SketchApplet().also {
       it.setOnSuccessListener {
@@ -72,7 +72,7 @@ public final class SketchFragment : PFragment() {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
       OptionsMenuItem.Refresh.id -> {
-        (this.sketch as SketchApplet).reset()
+        this.requireSketch<SketchApplet>().reset()
         return true
       }
       else -> {

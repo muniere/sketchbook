@@ -1,6 +1,5 @@
 package net.muniere.sketchbook.lib.graphics
 
-import java.nio.channels.FileLock
 import kotlin.math.cos
 import kotlin.math.pow
 import kotlin.math.sin

@@ -112,6 +112,7 @@ public final class Matrix<T> private constructor(
       }
     }
   }
+
   public fun forEachSorted(comparator: Comparator<T>, callback: (value: T, spot: Spot) -> Unit) {
     val compare = Comparator<Pair<T, Spot>> { a, b ->
       comparator.compare(a.first, b.first)

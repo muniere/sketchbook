@@ -30,6 +30,4 @@ android {
 
 dependencies {
   api(project(":lib"))
-
-  implementation("androidx.fragment:fragment-ktx:1.4.1")
 }

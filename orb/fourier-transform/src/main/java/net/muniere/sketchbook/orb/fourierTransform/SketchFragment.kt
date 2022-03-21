@@ -2,11 +2,11 @@ package net.muniere.sketchbook.orb.fourierTransform
 
 import android.content.Context
 import android.os.Bundle
-import processing.android.PFragment
+import net.muniere.sketchbook.lib.processing.SFragment
 import net.muniere.sketchbook.orb.fourierTransform.complex.SketchApplet as ComplexSketchApplet
 import net.muniere.sketchbook.orb.fourierTransform.real.SketchApplet as RealSketchApplet
 
-public final class SketchFragment : PFragment() {
+public final class SketchFragment : SFragment() {
 
   //
   // Genome

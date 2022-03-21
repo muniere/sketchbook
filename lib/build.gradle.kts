@@ -30,4 +30,8 @@ android {
 
 dependencies {
   api(fileTree("libs/processing-core-4.2.1.jar"))
+
+  api("androidx.core:core-ktx:1.7.0")
+  api("androidx.activity:activity-ktx:1.4.0")
+  api("androidx.fragment:fragment-ktx:1.4.1")
 }
