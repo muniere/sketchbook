@@ -9,6 +9,7 @@ import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material.icons.outlined.NearMe
 import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
+import androidx.compose.material.icons.outlined.Schema
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material.icons.outlined.Timeline
@@ -25,6 +26,7 @@ import net.muniere.sketchbook.orb.fireworks.SketchFragment as FireworksSketchFra
 import net.muniere.sketchbook.orb.fourierSeries.SketchFragment as FourierSeriesSketchFragment
 import net.muniere.sketchbook.orb.fourierTransform.SketchFragment as FourierTransformSketchFragment
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
+import net.muniere.sketchbook.orb.lifeGame.SketchFragment as LifeGameSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
 import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
 import net.muniere.sketchbook.orb.pathFinding.SketchFragment as PathFindingSketchFragment
@@ -138,6 +140,15 @@ public sealed class SketchSeed(
     caption = "Circle Morphing",
   ) {
     override fun inflate() = CircleMorphingSketchFragment()
+  }
+
+  public final object LifeGame : SketchSeed(
+    id = "085",
+    icon = Icons.Outlined.Schema,
+    title = "Life Game",
+    caption = "Conway's Game of Life",
+  ) {
+    override fun inflate() = LifeGameSketchFragment()
   }
 
   public final object ImageDithering : SketchSeed(

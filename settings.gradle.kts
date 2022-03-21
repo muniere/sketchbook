@@ -40,6 +40,7 @@ include(
   ":orb:fourier-series",
   ":orb:fourier-transform",
   ":orb:image-dithering",
+  ":orb:life-game",
   ":orb:menger-sponge",
   ":orb:nearest-neighbor",
   ":orb:path-finding",

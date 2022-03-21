@@ -49,6 +49,7 @@ dependencies {
   implementation(project(":orb:fourier-series"))
   implementation(project(":orb:fourier-transform"))
   implementation(project(":orb:image-dithering"))
+  implementation(project(":orb:life-game"))
   implementation(project(":orb:menger-sponge"))
   implementation(project(":orb:nearest-neighbor"))
   implementation(project(":orb:path-finding"))
