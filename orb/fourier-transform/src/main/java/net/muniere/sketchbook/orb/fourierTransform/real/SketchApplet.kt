@@ -16,7 +16,7 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#222222")
+      internal val BACKGROUND_COLOR = Colors.parse("#222222")
     }
 
     internal object Sample {
@@ -24,9 +24,9 @@ internal final class SketchApplet : SketchApplet() {
     }
 
     internal object Shape {
-      internal val COLOR = Colors.parse("#FFFFFF")
       internal val ORIGIN = Point2D(50.0F, 50.0F)
       internal val MARGIN = Size2D(300.0F, 300.0F)
+      internal val STROKE_COLOR = Colors.parse("#FFFFFF")
       internal const val TRACK_WEIGHT = 1.0F
       internal const val HAND_WEIGHT = 1.0F
       internal const val POINT_RADIUS = 0.0F
@@ -50,15 +50,15 @@ internal final class SketchApplet : SketchApplet() {
     val xSeries = SeriesModel.create(
       center = Params.Shape.ORIGIN.movingBy(x = Params.Shape.MARGIN.width),
       values = dataSet.map { Complex(re = it.x) },
-      decorate = { it.color = Params.Shape.COLOR }
+      decorate = { it.color = Params.Shape.STROKE_COLOR }
     )
     val ySeries = SeriesModel.create(
       center = Params.Shape.ORIGIN.movingBy(y = Params.Shape.MARGIN.height),
       values = dataSet.map { Complex(re = it.y) },
-      decorate = { it.color = Params.Shape.COLOR }
+      decorate = { it.color = Params.Shape.STROKE_COLOR }
     )
     val path = PathModel().also {
-      it.color = Params.Shape.COLOR
+      it.color = Params.Shape.STROKE_COLOR
       it.maxLength = (dataSet.size * 0.8).toInt()
     }
 
@@ -84,18 +84,18 @@ internal final class SketchApplet : SketchApplet() {
       }
       widget.xLine.also {
         it.weight = Params.Shape.TRACK_WEIGHT
-        it.color = Params.Shape.COLOR
+        it.color = Params.Shape.STROKE_COLOR
       }
       widget.yLine.also {
         it.weight = Params.Shape.TRACK_WEIGHT
-        it.color = Params.Shape.COLOR
+        it.color = Params.Shape.STROKE_COLOR
       }
     }
   }
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
 
     // widget
     this.widget.draw()

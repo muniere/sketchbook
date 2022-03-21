@@ -17,18 +17,22 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#E6E6FA")
+      internal val BACKGROUND_COLOR = Colors.parse("#E6E6FA")
+    }
+
+    internal object Metrics {
+      internal val TEXT_COLOR = Colors.parse("#8A2BE2")
     }
 
     internal object Drop {
-      internal val COLOR = Colors.parse("#8A2BE2")
+      internal val FILL_COLOR = Colors.parse("#8A2BE2")
       internal const val COUNT = 200
     }
   }
 
   override fun configure() = listOf(
     MetricsPlugin(this.g).also {
-      it.textColor = Params.Drop.COLOR
+      it.textColor = Params.Metrics.TEXT_COLOR
     }
   )
 
@@ -58,7 +62,7 @@ internal final class SketchApplet : SketchApplet() {
       frame = frame,
       drops = drops,
     ).also {
-      it.color = Params.Drop.COLOR
+      it.color = Params.Drop.FILL_COLOR
     }
 
     this.widget = ApplicationWidget(this.g).also {
@@ -67,7 +71,7 @@ internal final class SketchApplet : SketchApplet() {
   }
 
   override fun doDraw() {
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
 
     this.widget.draw()
 

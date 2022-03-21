@@ -11,7 +11,7 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#222222")
+      internal val BACKGROUND_COLOR = Colors.parse("#222222")
     }
 
     internal object Shape {
@@ -63,7 +63,7 @@ internal final class SketchApplet : SketchApplet() {
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
 
     // widget
     this.widget.draw()

@@ -13,7 +13,7 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#111111")
+      internal val BACKGROUND_COLOR = Colors.parse("#111111")
     }
 
     internal object Star {
@@ -57,7 +57,7 @@ internal final class SketchApplet : SketchApplet() {
   }
 
   override fun doDraw() {
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
     this.widget.draw()
     this.model.update()
   }

@@ -11,15 +11,19 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#222222")
+      internal val BACKGROUND_COLOR = Colors.parse("#222222")
     }
 
     internal object Clock {
       internal const val SCALE = -1 * (Math.PI / 120).toFloat()
     }
 
+    internal object Metrics {
+      internal val TEXT_COLOR = Colors.parse("#FFFFFF")
+    }
+
     internal object Shape {
-      internal val COLOR = Colors.parse("#FFFFFF")
+      internal val STROKE_COLOR = Colors.parse("#FFFFFF")
       internal val ORIGIN = Point2D(50.0F, 50.0F)
       internal const val SPACING = 50.0F
     }
@@ -35,7 +39,7 @@ internal final class SketchApplet : SketchApplet() {
 
   override fun configure() = listOf(
     MetricsPlugin(this.g).also {
-      it.textColor = Params.Shape.COLOR
+      it.textColor = Params.Metrics.TEXT_COLOR
     }
   )
 
@@ -48,11 +52,11 @@ internal final class SketchApplet : SketchApplet() {
       amplitude = Params.Series.RADIUS,
       depth = Params.Series.DEPTH,
     ).also {
-      it.color = Params.Shape.COLOR
+      it.color = Params.Shape.STROKE_COLOR
     }
 
     val path = PathModel().also {
-      it.color = Params.Shape.COLOR
+      it.color = Params.Shape.STROKE_COLOR
     }
 
     this.model = ApplicationModel(
@@ -83,14 +87,14 @@ internal final class SketchApplet : SketchApplet() {
       }
 
       widget.line.also {
-        it.color = Params.Shape.COLOR
+        it.color = Params.Shape.STROKE_COLOR
       }
     }
   }
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
 
     // update
     this.model.update()

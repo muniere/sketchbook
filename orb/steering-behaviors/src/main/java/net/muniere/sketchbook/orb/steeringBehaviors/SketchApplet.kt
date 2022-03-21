@@ -13,17 +13,17 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#222222")
+      internal val BACKGROUND_COLOR = Colors.parse("#222222")
     }
 
     internal object Text {
-      internal val COLOR = Colors.parse("#FFFFFF")
       internal const val VALUE = "hello, world"
       internal const val FONT_SIZE = 160.0F
       internal const val PATH_STEP = 15.0F
     }
 
     internal object Vehicle {
+      internal val STROKE_COLOR = Colors.parse("#FFFFFF")
       internal val ATTRACTION = GravitationField(distance = 100.0F, factor = 1.0F)
       internal val REPULSION = GravitationField(distance = 50.0F, factor = 2.0F)
       internal const val RADIUS = 2.0F
@@ -61,7 +61,7 @@ internal final class SketchApplet : SketchApplet() {
         ),
       ).also {
         it.anchor = anchor.copy()
-        it.strokeColor = Params.Text.COLOR
+        it.strokeColor = Params.Vehicle.STROKE_COLOR
         it.attraction = Params.Vehicle.ATTRACTION
         it.repulsion = Params.Vehicle.REPULSION
         it.maxSpeed = Params.Vehicle.SPEED_MAX
@@ -78,7 +78,7 @@ internal final class SketchApplet : SketchApplet() {
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
 
     // widget
     this.widget.draw()

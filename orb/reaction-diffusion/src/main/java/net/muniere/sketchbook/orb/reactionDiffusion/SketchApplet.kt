@@ -14,8 +14,8 @@ internal final class SketchApplet : SketchApplet() {
 
   private object Params {
     internal object Canvas {
-      internal val COLOR = Colors.parse("#333333")
-      internal const val SCALE = 4
+      internal val BACKGROUND_COLOR = Colors.parse("#333333")
+      internal const val SCALE_FACTOR = 4
     }
 
     internal object Diffusion {
@@ -41,8 +41,8 @@ internal final class SketchApplet : SketchApplet() {
 
   override fun settings() {
     this.size(
-      Params.Diffusion.SIZE * Params.Canvas.SCALE,
-      Params.Diffusion.SIZE * Params.Canvas.SCALE,
+      Params.Diffusion.SIZE * Params.Canvas.SCALE_FACTOR,
+      Params.Diffusion.SIZE * Params.Canvas.SCALE_FACTOR,
       PConstants.P2D,
     )
   }
@@ -81,13 +81,13 @@ internal final class SketchApplet : SketchApplet() {
 
     this.widget = ApplicationWidget(this.g).also {
       it.model = this.model
-      it.scale = Params.Canvas.SCALE
+      it.scale = Params.Canvas.SCALE_FACTOR
     }
   }
 
   override fun doDraw() {
     // canvas
-    this.g.background(Params.Canvas.COLOR)
+    this.g.background(Params.Canvas.BACKGROUND_COLOR)
 
     // widget
     this.widget.draw()
