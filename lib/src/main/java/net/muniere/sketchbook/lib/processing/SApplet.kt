@@ -3,6 +3,7 @@ package net.muniere.sketchbook.lib.processing
 import net.muniere.sketchbook.lib.graphics.Size2D
 import processing.core.PApplet
 import processing.core.PConstants
+import processing.core.getLooping
 
 public open class SApplet : PApplet() {
 
@@ -46,6 +47,9 @@ public open class SApplet : PApplet() {
   }
 
   final override fun draw() {
+    this.pendingActions.forEach { it.run() }
+    this.pendingActions.clear()
+
     this.plugins.forEach { it.onPreDraw(this) }
     this.push()
     this.doDraw()
@@ -56,4 +60,18 @@ public open class SApplet : PApplet() {
   protected open fun doDraw() {
     // do nothing
   }
+
+  public fun getLoopingDeeply(): Boolean {
+    return this.g.getLooping()
+  }
+
+  public fun doOnNextDraw(r: () -> Unit) {
+    this.pendingActions.add(Runnable(r))
+  }
+
+  public fun doOnNextDraw(r: Runnable) {
+    this.pendingActions.add(r)
+  }
+
+  private var pendingActions = mutableListOf<Runnable>()
 }

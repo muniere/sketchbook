@@ -102,12 +102,4 @@ internal final class SketchApplet : SApplet() {
     // draw
     this.widget.draw()
   }
-
-  override fun touchEnded() {
-    if (this.isLooping) {
-      this.noLoop()
-    } else {
-      this.loop()
-    }
-  }
 }

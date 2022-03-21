@@ -103,12 +103,4 @@ internal final class SketchApplet : SApplet() {
     // update
     this.model.update()
   }
-
-  override fun touchEnded() {
-    if (this.isLooping) {
-      this.noLoop()
-    } else {
-      this.loop()
-    }
-  }
 }

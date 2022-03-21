@@ -2,42 +2,29 @@ package net.muniere.sketchbook.orb.pathFinding
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
+import androidx.annotation.DrawableRes
 import net.muniere.sketchbook.lib.processing.SFragment
 
 public final class SketchFragment : SFragment() {
   init {
     this.sketch = SketchApplet().also {
       it.setOnSuccessListener {
-        Handler(Looper.getMainLooper()).post {
-          AlertDialog.Builder(this.requireContext())
-            .setTitle("Finished")
-            .setMessage("✅ Success")
-            .setPositiveButton("OK", null)
-            .show()
-        }
+        this.postShowSuccessAlert()
       }
       it.setOnFailureListener {
-        Handler(Looper.getMainLooper()).post {
-          AlertDialog.Builder(this.requireContext())
-            .setTitle("Finished")
-            .setMessage("❌ Failure")
-            .setPositiveButton("OK", null)
-            .show()
-        }
+        this.postShowFailureAlert()
       }
     }
   }
 
-  private sealed class OptionsMenuItem {
+  private sealed class OptionsMenuSeed {
     internal abstract val id: Int
     internal abstract val title: CharSequence
     internal abstract val iconRes: Int
 
-    internal object Refresh : OptionsMenuItem() {
+    internal object Refresh : OptionsMenuSeed() {
       override val id: Int
         get() = 1
 
@@ -45,9 +32,12 @@ public final class SketchFragment : SFragment() {
         get() = "Refresh"
 
       override val iconRes: Int
+        @DrawableRes
         get() = R.drawable.ic_refresh
     }
   }
+
+  private var optionsMenuSeeds = listOf<OptionsMenuSeed>()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -59,9 +49,11 @@ public final class SketchFragment : SFragment() {
 
     menu.clear()
 
-    listOf(
-      OptionsMenuItem.Refresh
-    ).forEach { item ->
+    this.optionsMenuSeeds = listOf(
+      OptionsMenuSeed.Refresh
+    )
+
+    this.optionsMenuSeeds.forEach { item ->
       menu.add(Menu.NONE, item.id, Menu.NONE, item.title).also {
         it.setIcon(item.iconRes)
         it.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
@@ -70,14 +62,35 @@ public final class SketchFragment : SFragment() {
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    when (item.itemId) {
-      OptionsMenuItem.Refresh.id -> {
+    when (this.optionsMenuSeeds.firstOrNull { it.id == item.itemId }) {
+      is OptionsMenuSeed.Refresh -> {
         this.requireSketch<SketchApplet>().reset()
         return true
       }
       else -> {
         return super.onOptionsItemSelected(item)
       }
+    }
+  }
+
+  private fun postShowSuccessAlert() {
+    this.post {
+      AlertDialog.Builder(this.requireContext())
+        .setTitle("Finished")
+        .setMessage("✅ Success")
+        .setPositiveButton("OK", null)
+        .show()
+
+    }
+  }
+
+  private fun postShowFailureAlert() {
+    this.post {
+      AlertDialog.Builder(this.requireContext())
+        .setTitle("Finished")
+        .setMessage("❌ Failure")
+        .setPositiveButton("OK", null)
+        .show()
     }
   }
 }
