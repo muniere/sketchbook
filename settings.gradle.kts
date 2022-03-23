@@ -40,6 +40,7 @@ include(
   ":orb:fourier-series",
   ":orb:fourier-transform",
   ":orb:image-dithering",
+  ":orb:image-mosaic",
   ":orb:life-game",
   ":orb:menger-sponge",
   ":orb:nearest-neighbor",
