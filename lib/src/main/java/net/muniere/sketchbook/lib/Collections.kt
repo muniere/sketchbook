@@ -1,5 +1,9 @@
 package net.muniere.sketchbook.lib
 
+public fun <T> List<T>.collect(indices: List<Int>): List<T> {
+  return indices.map(this::get)
+}
+
 public fun <T> MutableList<T>.swap(i: Int, j: Int) {
   val tmp = this[i]
   this[i] = this[j]

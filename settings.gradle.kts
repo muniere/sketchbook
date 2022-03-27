@@ -50,5 +50,6 @@ include(
   ":orb:reaction-diffusion",
   ":orb:star-field",
   ":orb:steering-behaviors",
+  ":orb:traveling-salesperson",
   ":lib",
 )

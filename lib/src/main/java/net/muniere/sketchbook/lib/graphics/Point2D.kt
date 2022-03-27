@@ -19,6 +19,10 @@ public final data class Point2D(
       )
     }
 
+    public fun dist(p: Point2D): Float {
+      return sqrt(p.x.pow(2) + p.y.pow(2))
+    }
+
     public fun dist(a: Point2D, b: Point2D): Float {
       return sqrt((a.x - b.x).pow(2) + (a.y - b.y).pow(2))
     }

@@ -65,6 +65,12 @@ public open class SApplet : PApplet() {
     return this.g.getLooping()
   }
 
+  public fun postNoLoop() {
+    this.doOnNextDraw {
+      this.noLoop()
+    }
+  }
+
   public fun doOnNextDraw(r: () -> Unit) {
     this.pendingActions.add(Runnable(r))
   }

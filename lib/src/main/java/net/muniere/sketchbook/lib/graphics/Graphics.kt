@@ -50,3 +50,15 @@ public fun PGraphics.vertex(point: Point2D) {
 public fun PGraphics.vertex(point: Point3D) {
   this.vertex(point.x, point.y, point.z)
 }
+
+public fun PGraphics.text(label: String, rect: Rect2D) {
+  this.text(label, rect.left, rect.top, rect.right, rect.bottom)
+}
+
+public fun PGraphics.text(label: String, point: Point2D) {
+  this.text(label, point.x, point.y)
+}
+
+public fun PGraphics.text(label: String, point: Point3D) {
+  this.text(label, point.x, point.y, point.z)
+}

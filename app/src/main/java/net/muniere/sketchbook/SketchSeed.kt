@@ -5,6 +5,7 @@ import androidx.compose.material.icons.outlined.Api
 import androidx.compose.material.icons.outlined.BubbleChart
 import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material.icons.outlined.Draw
+import androidx.compose.material.icons.outlined.Gesture
 import androidx.compose.material.icons.outlined.LensBlur
 import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material.icons.outlined.NearMe
@@ -20,13 +21,13 @@ import androidx.compose.material.icons.outlined.Waves
 import androidx.compose.material.icons.outlined.Window
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.fragment.app.Fragment
-import net.muniere.sketchbook.orb.fourierTransform.SketchMode
 import net.muniere.sketchbook.orb.bezierCurve.SketchFragment as BezierCurveSketchFragment
 import net.muniere.sketchbook.orb.circleMorphing.SketchFragment as CircleMorphingSketchFragment
 import net.muniere.sketchbook.orb.circlePacking.SketchFragment as CirclePackingSketchFragment
 import net.muniere.sketchbook.orb.fireworks.SketchFragment as FireworksSketchFragment
 import net.muniere.sketchbook.orb.fourierSeries.SketchFragment as FourierSeriesSketchFragment
 import net.muniere.sketchbook.orb.fourierTransform.SketchFragment as FourierTransformSketchFragment
+import net.muniere.sketchbook.orb.fourierTransform.SketchMode as FourierTransformSketchMode
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
 import net.muniere.sketchbook.orb.imageMosaic.SketchFragment as ImageMosaicSketchFragment
 import net.muniere.sketchbook.orb.lifeGame.SketchFragment as LifeGameSketchFragment
@@ -38,6 +39,8 @@ import net.muniere.sketchbook.orb.quadtree.SketchFragment as QuadtreeSketchFragm
 import net.muniere.sketchbook.orb.reactionDiffusion.SketchFragment as ReactionDiffusionSketchFragment
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
+import net.muniere.sketchbook.orb.travelingSalesperson.SketchFragment as TravelingSalespersonSketchFragment
+import net.muniere.sketchbook.orb.travelingSalesperson.SketchMode as TravelingSalespersonSketchMode
 
 public sealed class SketchSeed(
   public val id: String,
@@ -99,6 +102,24 @@ public sealed class SketchSeed(
     caption = "Fireworks",
   ) {
     override fun inflate() = FireworksSketchFragment()
+  }
+
+  public final object TravelingSalespersonBruteForce : SketchSeed(
+    id = "035-a",
+    icon = Icons.Outlined.Gesture,
+    title = "Traveling Salesperson",
+    caption = "Traveling Salesperson with Naive Brute Force",
+  ) {
+    override fun inflate() = TravelingSalespersonSketchFragment.newInstance(TravelingSalespersonSketchMode.NAIVE)
+  }
+
+  public final object TravelingSalespersonGenetic : SketchSeed(
+    id = "035-b",
+    icon = Icons.Outlined.Gesture,
+    title = "Traveling Salesperson",
+    caption = "Traveling Salesperson with Genetic Algorithm",
+  ) {
+    override fun inflate() = TravelingSalespersonSketchFragment.newInstance(TravelingSalespersonSketchMode.GENETIC)
   }
 
   public final object ImageMosaic : SketchSeed(
@@ -197,7 +218,7 @@ public sealed class SketchSeed(
     title = "Fourier Transform",
     caption = "Fourier Transform with Real Numbers",
   ) {
-    override fun inflate() = FourierTransformSketchFragment.newInstance(SketchMode.REAL)
+    override fun inflate() = FourierTransformSketchFragment.newInstance(FourierTransformSketchMode.REAL)
   }
 
   public final object FourierTransformComplex : SketchSeed(
@@ -206,7 +227,7 @@ public sealed class SketchSeed(
     title = "Fourier Transform",
     caption = "Fourier Transform with Complex Numbers",
   ) {
-    override fun inflate() = FourierTransformSketchFragment.newInstance(SketchMode.COMPLEX)
+    override fun inflate() = FourierTransformSketchFragment.newInstance(FourierTransformSketchMode.COMPLEX)
   }
 
   public final object BezierCurve : SketchSeed(
