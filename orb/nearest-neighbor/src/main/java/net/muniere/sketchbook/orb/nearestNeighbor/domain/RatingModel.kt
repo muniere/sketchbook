@@ -38,7 +38,7 @@ internal data class RatingModel(
         }
       }
 
-      return sqrt(pairs.sumOf { (it.first - it.second).toDouble().pow(2) })
+      return sqrt(pairs.sumOf { (it.first - it.second).pow(2) })
     }
   }
 }

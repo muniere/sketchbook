@@ -17,3 +17,11 @@ public fun <A, B, C> product(a: Iterable<A>, b: Iterable<B>, c: Iterable<C>): Li
 
   return nested.flatten().flatten()
 }
+
+public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Float): Float {
+  var sum: Float = 0.0F
+  for (element in this) {
+    sum += selector(element)
+  }
+  return sum
+}
