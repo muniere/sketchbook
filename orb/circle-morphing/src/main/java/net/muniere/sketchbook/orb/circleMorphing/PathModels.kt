@@ -1,5 +1,6 @@
 package net.muniere.sketchbook.orb.circleMorphing
 
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.rangeTo
 import kotlin.math.PI
@@ -8,12 +9,9 @@ internal final object PathModels {
 
   public fun circle(radius: Float, resolution: Int): PathModel {
     val step = (2 * PI).toFloat() / resolution
+    val range = FloatRange(0.0F, 2 * PI.toFloat())
 
-    val points = net.muniere.sketchbook.lib.generateSequence(
-      start = 0.0F,
-      end = 2 * PI.toFloat(),
-      step = step,
-    ).map { angle ->
+    val points = range.sequence(step).map { angle ->
       Point2D.polar(radius, angle)
     }
 
@@ -31,13 +29,10 @@ internal final object PathModels {
       val endAngle = (i + 1) * division
       val endPoint = Point2D.polar(radius, endAngle)
 
+      val angleRange = FloatRange(startAngle, endAngle)
       val pointRange = startPoint..endPoint
 
-      return@flatMap net.muniere.sketchbook.lib.generateSequence(
-        start = startAngle,
-        end = endAngle,
-        step = step,
-      ).map { angle ->
+      return@flatMap angleRange.sequence(step).map { angle ->
         val amount = (angle % division) / (endAngle - startAngle)
         return@map pointRange.lerp(amount)
       }

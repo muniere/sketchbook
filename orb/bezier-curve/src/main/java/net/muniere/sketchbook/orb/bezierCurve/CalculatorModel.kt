@@ -1,6 +1,6 @@
 package net.muniere.sketchbook.orb.bezierCurve
 
-import net.muniere.sketchbook.lib.generateSequence
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.graphics.Line2D
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Point2DRange
@@ -21,7 +21,9 @@ internal final class CalculatorModel(
     val auxiliaries = mutableListOf<Line2D>()
 
     val step = 1.0F / (this.resolution + 1)
-    val midpoints = generateSequence(step, 1.0F, step).map { amount ->
+    val range = FloatRange(step, 1.0F)
+
+    val midpoints = range.sequence(step).map { amount ->
       this.reduce(
         points = points,
         amount = amount,

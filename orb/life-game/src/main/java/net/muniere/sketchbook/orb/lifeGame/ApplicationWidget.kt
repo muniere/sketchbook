@@ -1,6 +1,7 @@
 package net.muniere.sketchbook.orb.lifeGame
 
 import android.graphics.Color
+import net.muniere.sketchbook.lib.FloatRange
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
@@ -54,19 +55,14 @@ internal class ApplicationWidget(graphics: PGraphics) : ModelWidget<ApplicationM
       it.stroke(this.borderColor)
       it.noFill()
 
-      net.muniere.sketchbook.lib.generateSequence(
-        start = cellSize.width,
-        end = this.frame.width,
-        step = cellSize.width
-      ).forEach { x ->
+      val xs = FloatRange(cellSize.width, this.frame.width)
+      val ys = FloatRange(cellSize.height, this.frame.height)
+
+      xs.sequence(step = cellSize.width).forEach { x ->
         it.line(x, 0.0F, x, this.frame.height)
       }
 
-      net.muniere.sketchbook.lib.generateSequence(
-        start = cellSize.height,
-        end = this.frame.height,
-        step = cellSize.height,
-      ).forEach { y ->
+      ys.sequence(step = cellSize.height).forEach { y ->
         it.line(0.0F, y, this.frame.width, y)
       }
     }

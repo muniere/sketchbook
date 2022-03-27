@@ -38,6 +38,10 @@ public class FloatRange(
   public fun amountOf(value: Float): Float {
     return (value - this.start) / (this.endInclusive - this.start)
   }
+
+  public fun sequence(step: Float = 1.0F): Sequence<Float> {
+    return generateSequence(this.start) { prev -> (prev + step).takeIf { it < this.endInclusive } }
+  }
 }
 
 public class DoubleRange(
@@ -75,5 +79,9 @@ public class DoubleRange(
 
   public fun amountOf(value: Double): Double {
     return (value - this.start) / (this.endInclusive - this.start)
+  }
+
+  public fun sequence(step: Double = 1.0): Sequence<Double> {
+    return generateSequence(this.start) { prev -> (prev + step).takeIf { it < this.endInclusive } }
   }
 }
