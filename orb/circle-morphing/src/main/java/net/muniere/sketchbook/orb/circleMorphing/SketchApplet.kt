@@ -67,9 +67,10 @@ internal final class SketchApplet : SApplet() {
     }
 
     this.model = ApplicationModel(
-      morphing = InterpolationMorphingModel(
+      morphing = MorphingModels.Interpolation(
         src = src,
         dst = dst,
+        interpolator = InterpolatorModels.Quadratic,
       )
     )
 

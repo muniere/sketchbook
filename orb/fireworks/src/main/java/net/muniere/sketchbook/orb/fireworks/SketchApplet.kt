@@ -52,7 +52,7 @@ internal final class SketchApplet : SApplet() {
       y = Params.Field.GRAVITY,
     )
 
-    val ignition = RandomIgnitionModel().also {
+    val ignition = IgnitionModels.Random().also {
       it.radiusRange = Params.Fireworks.RADIUS_RANGE
       it.speedRange = Params.Fireworks.SPEED_RANGE
       it.lifespanRange = Params.Fireworks.LIFESPAN_RANGE
@@ -60,7 +60,7 @@ internal final class SketchApplet : SApplet() {
 
     val fireworks = List(Params.Fireworks.COUNT) {
       FireworkModel(
-        explosion = RandomExplosionModel().also {
+        explosion = ExplosionModels.Random().also {
           it.count = Params.Explosion.COUNT
           it.scale = Params.Explosion.SCALE
           it.range = Params.Explosion.SPEED_RANGE
