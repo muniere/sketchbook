@@ -58,6 +58,7 @@ dependencies {
   implementation(project(":orb:purple-rain"))
   implementation(project(":orb:quadtree"))
   implementation(project(":orb:reaction-diffusion"))
+  implementation(project(":orb:sort-vision"))
   implementation(project(":orb:star-field"))
   implementation(project(":orb:steering-behaviors"))
   implementation(project(":orb:traveling-salesperson"))

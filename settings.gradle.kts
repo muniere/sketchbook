@@ -49,6 +49,7 @@ include(
   ":orb:purple-rain",
   ":orb:quadtree",
   ":orb:reaction-diffusion",
+  ":orb:sort-vision",
   ":orb:star-field",
   ":orb:steering-behaviors",
   ":orb:traveling-salesperson",

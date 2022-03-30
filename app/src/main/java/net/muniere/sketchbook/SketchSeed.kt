@@ -3,6 +3,7 @@ package net.muniere.sketchbook
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Analytics
 import androidx.compose.material.icons.outlined.Api
+import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.BubbleChart
 import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material.icons.outlined.Draw
@@ -40,6 +41,8 @@ import net.muniere.sketchbook.orb.pathFinding.SketchFragment as PathFindingSketc
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
 import net.muniere.sketchbook.orb.quadtree.SketchFragment as QuadtreeSketchFragment
 import net.muniere.sketchbook.orb.reactionDiffusion.SketchFragment as ReactionDiffusionSketchFragment
+import net.muniere.sketchbook.orb.sortVision.SketchFragment as SortVisionSketchFragment
+import net.muniere.sketchbook.orb.sortVision.SketchMode as SortVisionSketchMode
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
 import net.muniere.sketchbook.orb.travelingSalesperson.SketchFragment as TravelingSalespersonSketchFragment
@@ -213,6 +216,42 @@ public sealed class SketchSeed(
     caption = "Collision Detection by Quadtree",
   ) {
     override fun inflate() = QuadtreeSketchFragment()
+  }
+
+  public final object SortVisionBubble : SketchSeed(
+    id = "114-a",
+    icon = Icons.Outlined.BarChart,
+    title = "Sort Visualization",
+    caption = "Sort Visualization / Bubble Sort",
+  ) {
+    override fun inflate() = SortVisionSketchFragment.newInstance(SortVisionSketchMode.BUBBLE)
+  }
+
+  public final object SortVisionSelection : SketchSeed(
+    id = "114-b",
+    icon = Icons.Outlined.BarChart,
+    title = "Sort Visualization",
+    caption = "Sort Visualization / Selection Sort",
+  ) {
+    override fun inflate() = SortVisionSketchFragment.newInstance(SortVisionSketchMode.SELECTION)
+  }
+
+  public final object SortVisionInsertion : SketchSeed(
+    id = "114-c",
+    icon = Icons.Outlined.BarChart,
+    title = "Sort Visualization",
+    caption = "Sort Visualization / Insertion Sort",
+  ) {
+    override fun inflate() = SortVisionSketchFragment.newInstance(SortVisionSketchMode.INSERTION)
+  }
+
+  public final object SortVisionQuick : SketchSeed(
+    id = "114-d",
+    icon = Icons.Outlined.BarChart,
+    title = "Sort Visualization",
+    caption = "Sort Visualization / Quick Sort",
+  ) {
+    override fun inflate() = SortVisionSketchFragment.newInstance(SortVisionSketchMode.QUICK)
   }
 
   public final object FourierSeries : SketchSeed(

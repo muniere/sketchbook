@@ -10,6 +10,11 @@ public fun <T> MutableList<T>.swap(i: Int, j: Int) {
   this[j] = tmp
 }
 
+public fun <T> MutableList<T>.replace(index: Int, elements: Collection<T>) {
+  this.removeAt(index)
+  this.addAll(index, elements)
+}
+
 public fun <T> MutableList<T>.reverse(fromIndex: Int, toIndex: Int) {
   this.subList(fromIndex, toIndex).reversed().forEachIndexed { index, value ->
     this[fromIndex + index] = value
