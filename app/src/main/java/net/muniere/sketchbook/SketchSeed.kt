@@ -1,6 +1,7 @@
 package net.muniere.sketchbook
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Analytics
 import androidx.compose.material.icons.outlined.Api
 import androidx.compose.material.icons.outlined.BubbleChart
 import androidx.compose.material.icons.outlined.Circle
@@ -9,6 +10,7 @@ import androidx.compose.material.icons.outlined.Gesture
 import androidx.compose.material.icons.outlined.LensBlur
 import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material.icons.outlined.NearMe
+import androidx.compose.material.icons.outlined.Pattern
 import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
 import androidx.compose.material.icons.outlined.Schema
@@ -30,6 +32,7 @@ import net.muniere.sketchbook.orb.fourierTransform.SketchFragment as FourierTran
 import net.muniere.sketchbook.orb.fourierTransform.SketchMode as FourierTransformSketchMode
 import net.muniere.sketchbook.orb.imageDithering.SketchFragment as ImageDitheringSketchFragment
 import net.muniere.sketchbook.orb.imageMosaic.SketchFragment as ImageMosaicSketchFragment
+import net.muniere.sketchbook.orb.langtonAnt.SketchFragment as LangtonAntSketchFragment
 import net.muniere.sketchbook.orb.lifeGame.SketchFragment as LifeGameSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
 import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
@@ -183,6 +186,15 @@ public sealed class SketchSeed(
     caption = "Conway's Game of Life",
   ) {
     override fun inflate() = LifeGameSketchFragment()
+  }
+
+  public final object LangtonAnt : SketchSeed(
+    id = "089",
+    icon = Icons.Outlined.Pattern,
+    title = "Langton's Ant",
+    caption = "Langton's Ant",
+  ) {
+    override fun inflate() = LangtonAntSketchFragment()
   }
 
   public final object ImageDithering : SketchSeed(

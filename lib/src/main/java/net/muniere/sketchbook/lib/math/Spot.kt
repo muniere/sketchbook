@@ -11,4 +11,11 @@ public final data class Spot(
       return (a.row - b.row).absoluteValue + (a.column - b.column).absoluteValue
     }
   }
+
+  public fun shiftedBy(shift: Shift): Spot {
+    return Spot(
+      row = this.row + shift.row,
+      column = this.column + shift.column,
+    )
+  }
 }

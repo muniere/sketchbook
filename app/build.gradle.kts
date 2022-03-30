@@ -50,6 +50,7 @@ dependencies {
   implementation(project(":orb:fourier-transform"))
   implementation(project(":orb:image-dithering"))
   implementation(project(":orb:image-mosaic"))
+  implementation(project(":orb:langton-ant"))
   implementation(project(":orb:life-game"))
   implementation(project(":orb:menger-sponge"))
   implementation(project(":orb:nearest-neighbor"))

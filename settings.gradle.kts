@@ -41,6 +41,7 @@ include(
   ":orb:fourier-transform",
   ":orb:image-dithering",
   ":orb:image-mosaic",
+  ":orb:langton-ant",
   ":orb:life-game",
   ":orb:menger-sponge",
   ":orb:nearest-neighbor",
