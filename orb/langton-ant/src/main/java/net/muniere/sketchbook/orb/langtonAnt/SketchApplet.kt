@@ -2,6 +2,7 @@ package net.muniere.sketchbook.orb.langtonAnt
 
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.math.Dimen
+import net.muniere.sketchbook.lib.atlas.Direction
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background

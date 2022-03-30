@@ -1,10 +1,10 @@
-package net.muniere.sketchbook.orb.langtonAnt
+package net.muniere.sketchbook.lib.atlas
 
 import net.muniere.sketchbook.lib.math.Shift
 
-internal final object NavModel {
+public final object Director {
 
-  private val SHIFTS = mapOf(
+  private val STEPS = mapOf(
     Direction.NORTH to Shift(row = -1, column = 0),
     Direction.SOUTH to Shift(row = +1, column = 0),
     Direction.WEST to Shift(row = 0, column = -1),
@@ -25,15 +25,15 @@ internal final object NavModel {
     Direction.EAST to Direction.SOUTH,
   )
 
-  public fun jump(direction: Direction): Shift {
-    return this.SHIFTS[direction].let(::checkNotNull)
+  public fun step(direction: Direction): Shift {
+    return STEPS[direction].let(::checkNotNull)
   }
 
   public fun left(direction: Direction): Direction {
-    return this.LEFTS[direction].let(::checkNotNull)
+    return LEFTS[direction].let(::checkNotNull)
   }
 
   public fun right(direction: Direction): Direction {
-    return this.RIGHTS[direction].let(::checkNotNull)
+    return RIGHTS[direction].let(::checkNotNull)
   }
 }

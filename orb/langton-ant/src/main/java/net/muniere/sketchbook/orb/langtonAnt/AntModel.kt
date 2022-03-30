@@ -1,6 +1,8 @@
 package net.muniere.sketchbook.orb.langtonAnt
 
 import net.muniere.sketchbook.lib.math.Dimen
+import net.muniere.sketchbook.lib.atlas.Direction
+import net.muniere.sketchbook.lib.atlas.Director
 import net.muniere.sketchbook.lib.math.Spot
 
 internal final class AntModel(
@@ -13,11 +15,9 @@ internal final class AntModel(
   public var direction: Direction = direction
     private set
 
-  private val compass = NavModel
-
   public fun forward() {
     this.spot = this.spot.shiftedBy(
-      NavModel.jump(this.direction)
+      Director.step(this.direction)
     )
   }
 
@@ -26,10 +26,10 @@ internal final class AntModel(
   }
 
   public fun turnLeft() {
-    this.direction = NavModel.left(this.direction)
+    this.direction = Director.left(this.direction)
   }
 
   public fun turnRight() {
-    this.direction = NavModel.right(this.direction)
+    this.direction = Director.right(this.direction)
   }
 }

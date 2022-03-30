@@ -5,6 +5,7 @@ import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
+import net.muniere.sketchbook.lib.atlas.Direction
 import net.muniere.sketchbook.lib.processing.ModelWidget
 import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.fill
