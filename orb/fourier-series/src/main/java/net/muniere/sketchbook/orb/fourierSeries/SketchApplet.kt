@@ -2,6 +2,7 @@ package net.muniere.sketchbook.orb.fourierSeries
 
 import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
+import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.FrameClock
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.SApplet
@@ -24,7 +25,7 @@ internal final class SketchApplet : SApplet() {
 
     internal object Shape {
       internal val STROKE_COLOR = Colors.parse("#FFFFFF")
-      internal val ORIGIN = Point2D(50.0F, 50.0F)
+      internal const val PADDING = 50.0F
       internal const val SPACING = 50.0F
     }
 
@@ -69,8 +70,8 @@ internal final class SketchApplet : SApplet() {
       widget.model = this.model
 
       widget.origin = Point2D(
-        x = Params.Shape.ORIGIN.x + Params.Series.RADIUS,
-        y = Params.Shape.ORIGIN.y + Params.Series.RADIUS,
+        x = Params.Shape.PADDING + Params.Series.RADIUS,
+        y = this.height / 2.0F,
       )
 
       widget.series.also {
