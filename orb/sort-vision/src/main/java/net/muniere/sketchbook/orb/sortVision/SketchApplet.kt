@@ -1,6 +1,9 @@
 package net.muniere.sketchbook.orb.sortVision
 
 import net.muniere.sketchbook.lib.drawing.Colors
+import net.muniere.sketchbook.lib.graphics.Point2D
+import net.muniere.sketchbook.lib.graphics.Rect2D
+import net.muniere.sketchbook.lib.graphics.Size2D
 import net.muniere.sketchbook.lib.processing.MetricsPlugin
 import net.muniere.sketchbook.lib.processing.SApplet
 import net.muniere.sketchbook.lib.processing.background
@@ -45,12 +48,24 @@ internal class SketchApplet(
   override fun doSetup() {
     val values = IntRange(1, Params.Sort.DATA_COUNT).shuffled()
 
+    val chartSize = Size2D(
+      width = this.width * 1.0F,
+      height = this.height * 0.75F,
+    )
+
+    val chartOrigin = Point2D(
+      x = this.width - chartSize.width,
+      y = this.height - chartSize.height,
+    )
+
+    val chartFrame = Rect2D(chartOrigin, chartSize)
+
     when (this.mode) {
       SketchMode.BUBBLE -> {
         val model = BubbleSortMachineModel(values)
         val widget = BubbleSortMachineWidget(this.g).also {
           it.model = model
-          it.frame.size = this.size
+          it.frame = chartFrame
           it.defaultColor = Params.Sort.DEFAULT_COLOR
           it.cursorColor = Params.Sort.CURSOR_COLOR
           it.answerColor = Params.Sort.ANSWER_COLOR
@@ -63,7 +78,7 @@ internal class SketchApplet(
         val model = SelectionSortMachineModel(values)
         val widget = SelectionSortMachineWidget(this.g).also {
           it.model = model
-          it.frame.size = this.size
+          it.frame = chartFrame
           it.defaultColor = Params.Sort.DEFAULT_COLOR
           it.cursorColor = Params.Sort.CURSOR_COLOR
           it.answerColor = Params.Sort.ANSWER_COLOR
@@ -77,7 +92,7 @@ internal class SketchApplet(
         val model = InsertionSortMachineModel(values)
         val widget = InsertionSortMachineWidget(this.g).also {
           it.model = model
-          it.frame.size = this.size
+          it.frame = chartFrame
           it.defaultColor = Params.Sort.DEFAULT_COLOR
           it.cursorColor = Params.Sort.CURSOR_COLOR
           it.answerColor = Params.Sort.ANSWER_COLOR
@@ -91,7 +106,7 @@ internal class SketchApplet(
         val model = QuickSortMachineModel(values)
         val widget = QuickSortMachineWidget(this.g).also {
           it.model = model
-          it.frame.size = this.size
+          it.frame = chartFrame
           it.defaultColor = Params.Sort.DEFAULT_COLOR
           it.cursorColor = Params.Sort.CURSOR_COLOR
           it.answerColor = Params.Sort.ANSWER_COLOR

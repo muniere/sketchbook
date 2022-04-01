@@ -5,6 +5,7 @@ import net.muniere.sketchbook.lib.drawing.Colors
 import net.muniere.sketchbook.lib.graphics.Point2D
 import net.muniere.sketchbook.lib.graphics.Rect2D
 import net.muniere.sketchbook.lib.graphics.Size2D
+import net.muniere.sketchbook.lib.graphics.translate
 import net.muniere.sketchbook.lib.processing.ModelWidget
 import net.muniere.sketchbook.lib.processing.fill
 import processing.core.PGraphics
@@ -25,6 +26,8 @@ internal abstract class SortMachineWidget<Model : SortMachineModel>(graphics: PG
     )
 
     this.scope { graphics ->
+      graphics.translate(this.frame.origin)
+
       model.values.forEachIndexed { index, value ->
         val w = blockSize.width
         val h = value * blockSize.height
