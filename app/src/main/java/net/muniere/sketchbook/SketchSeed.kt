@@ -10,13 +10,16 @@ import androidx.compose.material.icons.outlined.Draw
 import androidx.compose.material.icons.outlined.Gesture
 import androidx.compose.material.icons.outlined.LensBlur
 import androidx.compose.material.icons.outlined.LocalFireDepartment
+import androidx.compose.material.icons.outlined.Motorcycle
 import androidx.compose.material.icons.outlined.NearMe
+import androidx.compose.material.icons.outlined.Nfc
 import androidx.compose.material.icons.outlined.Pattern
 import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
 import androidx.compose.material.icons.outlined.Schema
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.StarOutline
+import androidx.compose.material.icons.outlined.Storm
 import androidx.compose.material.icons.outlined.Timeline
 import androidx.compose.material.icons.outlined.Umbrella
 import androidx.compose.material.icons.outlined.ViewInAr
@@ -47,6 +50,7 @@ import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFra
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
 import net.muniere.sketchbook.orb.travelingSalesperson.SketchFragment as TravelingSalespersonSketchFragment
 import net.muniere.sketchbook.orb.travelingSalesperson.SketchMode as TravelingSalespersonSketchMode
+import net.muniere.sketchbook.orb.ulamSpiral.SketchFragment as UlamSpiralSketchFragment
 
 public sealed class SketchSeed(
   public val id: String,
@@ -288,6 +292,15 @@ public sealed class SketchSeed(
     caption = "Bezier Curve",
   ) {
     override fun inflate() = BezierCurveSketchFragment()
+  }
+
+  public final object UlamSpiral : SketchSeed(
+    id = "167",
+    icon = Icons.Outlined.Storm,
+    title = "Ulam Spiral",
+    caption = "Ulam Spiral",
+  ) {
+    override fun inflate() = UlamSpiralSketchFragment()
   }
 
   override fun equals(other: Any?): Boolean {

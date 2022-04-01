@@ -53,5 +53,6 @@ include(
   ":orb:star-field",
   ":orb:steering-behaviors",
   ":orb:traveling-salesperson",
+  ":orb:ulam-spiral",
   ":lib",
 )

@@ -52,6 +52,14 @@ public final data class Size3D(
     this.depth *= value
   }
 
+  public operator fun div(value: Float): Size3D {
+    return Size3D(
+      width = this.width / value,
+      height = this.height / value,
+      depth = this.depth / value,
+    )
+  }
+
   public fun assign(other: Size3D) {
     this.width = other.width
     this.height = other.height

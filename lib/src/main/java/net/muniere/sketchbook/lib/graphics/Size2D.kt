@@ -45,6 +45,13 @@ public final data class Size2D(
     this.height *= value
   }
 
+  public operator fun div(value: Float): Size2D {
+    return Size2D(
+      width = this.width / value,
+      height = this.height / value,
+    )
+  }
+
   public fun assign(other: Size2D) {
     this.width = other.width
     this.height = other.height

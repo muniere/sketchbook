@@ -62,6 +62,7 @@ dependencies {
   implementation(project(":orb:star-field"))
   implementation(project(":orb:steering-behaviors"))
   implementation(project(":orb:traveling-salesperson"))
+  implementation(project(":orb:ulam-spiral"))
 
   implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
 
