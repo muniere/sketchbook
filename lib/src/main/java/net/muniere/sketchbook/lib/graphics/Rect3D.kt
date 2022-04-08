@@ -1,5 +1,7 @@
 package net.muniere.sketchbook.lib.graphics
 
+import kotlin.random.Random
+
 public final data class Rect3D(
   public var origin: Point3D,
   public var size: Size3D,
@@ -58,5 +60,13 @@ public final data class Rect3D(
   public fun assign(other: Rect3D) {
     this.origin = other.origin
     this.size = other.size
+  }
+
+  public fun random(): Point3D {
+    return Point3D(
+      x = this.origin.x + this.width * Random.nextFloat(),
+      y = this.origin.y + this.height * Random.nextFloat(),
+      z = this.origin.z + this.depth * Random.nextFloat(),
+    )
   }
 }

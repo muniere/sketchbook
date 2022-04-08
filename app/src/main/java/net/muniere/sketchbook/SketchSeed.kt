@@ -1,7 +1,6 @@
 package net.muniere.sketchbook
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Analytics
 import androidx.compose.material.icons.outlined.Api
 import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.BubbleChart
@@ -10,9 +9,7 @@ import androidx.compose.material.icons.outlined.Draw
 import androidx.compose.material.icons.outlined.Gesture
 import androidx.compose.material.icons.outlined.LensBlur
 import androidx.compose.material.icons.outlined.LocalFireDepartment
-import androidx.compose.material.icons.outlined.Motorcycle
 import androidx.compose.material.icons.outlined.NearMe
-import androidx.compose.material.icons.outlined.Nfc
 import androidx.compose.material.icons.outlined.Pattern
 import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
@@ -25,6 +22,8 @@ import androidx.compose.material.icons.outlined.Umbrella
 import androidx.compose.material.icons.outlined.ViewInAr
 import androidx.compose.material.icons.outlined.Waves
 import androidx.compose.material.icons.outlined.Window
+import androidx.compose.material.icons.outlined.ZoomOut
+import androidx.compose.material.icons.outlined.ZoomOutMap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.fragment.app.Fragment
 import net.muniere.sketchbook.orb.bezierCurve.SketchFragment as BezierCurveSketchFragment
@@ -48,6 +47,7 @@ import net.muniere.sketchbook.orb.sortVision.SketchFragment as SortVisionSketchF
 import net.muniere.sketchbook.orb.sortVision.SketchMode as SortVisionSketchMode
 import net.muniere.sketchbook.orb.starField.SketchFragment as StarFieldSketchFragment
 import net.muniere.sketchbook.orb.steeringBehaviors.SketchFragment as SteeringBehaviorsSketchFragment
+import net.muniere.sketchbook.orb.steeringEvolutionary.SketchFragment as SteeringEvolutionarySketchFragment
 import net.muniere.sketchbook.orb.travelingSalesperson.SketchFragment as TravelingSalespersonSketchFragment
 import net.muniere.sketchbook.orb.travelingSalesperson.SketchMode as TravelingSalespersonSketchMode
 import net.muniere.sketchbook.orb.ulamSpiral.SketchFragment as UlamSpiralSketchFragment
@@ -161,11 +161,20 @@ public sealed class SketchSeed(
 
   public final object SteeringBehaviors : SketchSeed(
     id = "059",
-    icon = Icons.Outlined.NearMe,
+    icon = Icons.Outlined.ZoomOutMap,
     title = "Steering Behaviors",
     caption = "Steering Behaviors",
   ) {
     override fun inflate() = SteeringBehaviorsSketchFragment()
+  }
+
+  public final object SteeringEvolutionary : SketchSeed(
+    id = "069",
+    icon = Icons.Outlined.NearMe,
+    title = "Steering Evolutionary",
+    caption = "Steering Behaviors with Evolutionary",
+  ) {
+    override fun inflate() = SteeringEvolutionarySketchFragment()
   }
 
   public final object NearestNeighbor : SketchSeed(

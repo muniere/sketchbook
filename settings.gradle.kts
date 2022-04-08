@@ -52,6 +52,7 @@ include(
   ":orb:sort-vision",
   ":orb:star-field",
   ":orb:steering-behaviors",
+  ":orb:steering-evolutionary",
   ":orb:traveling-salesperson",
   ":orb:ulam-spiral",
   ":lib",

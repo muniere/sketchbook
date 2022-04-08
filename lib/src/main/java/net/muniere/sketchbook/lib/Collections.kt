@@ -1,5 +1,9 @@
 package net.muniere.sketchbook.lib
 
+public fun <T> concatinate(vararg collections: Collection<T>): List<T> {
+  return collections.fold(emptyList()) { a, b -> a + b }
+}
+
 public fun <T> List<T>.collect(indices: List<Int>): List<T> {
   return indices.map(this::get)
 }
@@ -8,6 +12,19 @@ public fun <T> MutableList<T>.swap(i: Int, j: Int) {
   val tmp = this[i]
   this[i] = this[j]
   this[j] = tmp
+}
+
+public fun <T> MutableList<T>.removeWhere(predicate: (T) -> Boolean): List<T> {
+  val removed = mutableListOf<T>()
+  this.removeIf {
+    if (predicate(it)) {
+      removed.add(it)
+      return@removeIf true
+    } else {
+      return@removeIf false
+    }
+  }
+  return removed
 }
 
 public fun <T> MutableList<T>.replace(index: Int, elements: Collection<T>) {

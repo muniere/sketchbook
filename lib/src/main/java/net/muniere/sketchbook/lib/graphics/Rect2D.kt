@@ -1,5 +1,7 @@
 package net.muniere.sketchbook.lib.graphics
 
+import kotlin.random.Random
+
 public final data class Rect2D(
   public var origin: Point2D,
   public var size: Size2D,
@@ -73,6 +75,13 @@ public final data class Rect2D(
   public fun assign(other: Rect2D) {
     this.origin = other.origin
     this.size = other.size
+  }
+
+  public fun random(): Point2D {
+    return Point2D(
+      x = this.origin.x + this.width * Random.nextFloat(),
+      y = this.origin.y + this.height * Random.nextFloat(),
+    )
   }
 
   public fun contains(point: Point2D): Boolean {
