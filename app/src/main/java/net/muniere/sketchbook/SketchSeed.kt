@@ -5,8 +5,11 @@ import androidx.compose.material.icons.outlined.Api
 import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.BubbleChart
 import androidx.compose.material.icons.outlined.Circle
+import androidx.compose.material.icons.outlined.Coronavirus
 import androidx.compose.material.icons.outlined.Draw
+import androidx.compose.material.icons.outlined.FilterBAndW
 import androidx.compose.material.icons.outlined.Gesture
+import androidx.compose.material.icons.outlined.Gradient
 import androidx.compose.material.icons.outlined.LensBlur
 import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material.icons.outlined.NearMe
@@ -38,6 +41,7 @@ import net.muniere.sketchbook.orb.imageMosaic.SketchFragment as ImageMosaicSketc
 import net.muniere.sketchbook.orb.langtonAnt.SketchFragment as LangtonAntSketchFragment
 import net.muniere.sketchbook.orb.lifeGame.SketchFragment as LifeGameSketchFragment
 import net.muniere.sketchbook.orb.mengerSponge.SketchFragment as MengerSpongeSketchFragment
+import net.muniere.sketchbook.orb.mitosisSimulation.SketchFragment as MitosisSimulationSketchFragment
 import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeighborSketchFragment
 import net.muniere.sketchbook.orb.pathFinding.SketchFragment as PathFindingSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
@@ -94,6 +98,15 @@ public sealed class SketchSeed(
     caption = "Purple Rain",
   ) {
     override fun inflate() = PurpleRainSketchFragment()
+  }
+
+  public final object MitosisSimulation : SketchSeed(
+    id = "006",
+    icon = Icons.Outlined.Gradient,
+    title = "Mitosis Simulation",
+    caption = "Mitosis Simulation",
+  ) {
+    override fun inflate() = MitosisSimulationSketchFragment()
   }
 
   public final object ReactionDiffusion : SketchSeed(

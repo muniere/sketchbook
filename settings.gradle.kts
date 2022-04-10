@@ -44,6 +44,7 @@ include(
   ":orb:langton-ant",
   ":orb:life-game",
   ":orb:menger-sponge",
+  ":orb:mitosis-simulation",
   ":orb:nearest-neighbor",
   ":orb:path-finding",
   ":orb:purple-rain",

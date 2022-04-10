@@ -53,6 +53,7 @@ dependencies {
   implementation(project(":orb:langton-ant"))
   implementation(project(":orb:life-game"))
   implementation(project(":orb:menger-sponge"))
+  implementation(project(":orb:mitosis-simulation"))
   implementation(project(":orb:nearest-neighbor"))
   implementation(project(":orb:path-finding"))
   implementation(project(":orb:purple-rain"))
