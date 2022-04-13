@@ -49,6 +49,7 @@ include(
   ":orb:path-finding",
   ":orb:purple-rain",
   ":orb:quadtree",
+  ":orb:raycasting",
   ":orb:reaction-diffusion",
   ":orb:sort-vision",
   ":orb:star-field",

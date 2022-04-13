@@ -5,9 +5,7 @@ import androidx.compose.material.icons.outlined.Api
 import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.BubbleChart
 import androidx.compose.material.icons.outlined.Circle
-import androidx.compose.material.icons.outlined.Coronavirus
 import androidx.compose.material.icons.outlined.Draw
-import androidx.compose.material.icons.outlined.FilterBAndW
 import androidx.compose.material.icons.outlined.Gesture
 import androidx.compose.material.icons.outlined.Gradient
 import androidx.compose.material.icons.outlined.LensBlur
@@ -18,6 +16,7 @@ import androidx.compose.material.icons.outlined.People
 import androidx.compose.material.icons.outlined.Photo
 import androidx.compose.material.icons.outlined.Schema
 import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material.icons.outlined.Sensors
 import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material.icons.outlined.Storm
 import androidx.compose.material.icons.outlined.Timeline
@@ -25,7 +24,6 @@ import androidx.compose.material.icons.outlined.Umbrella
 import androidx.compose.material.icons.outlined.ViewInAr
 import androidx.compose.material.icons.outlined.Waves
 import androidx.compose.material.icons.outlined.Window
-import androidx.compose.material.icons.outlined.ZoomOut
 import androidx.compose.material.icons.outlined.ZoomOutMap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.fragment.app.Fragment
@@ -46,6 +44,7 @@ import net.muniere.sketchbook.orb.nearestNeighbor.SketchFragment as NearestNeigh
 import net.muniere.sketchbook.orb.pathFinding.SketchFragment as PathFindingSketchFragment
 import net.muniere.sketchbook.orb.purpleRain.SketchFragment as PurpleRainSketchFragment
 import net.muniere.sketchbook.orb.quadtree.SketchFragment as QuadtreeSketchFragment
+import net.muniere.sketchbook.orb.raycasting.SketchFragment as RaycastingSketchFragment
 import net.muniere.sketchbook.orb.reactionDiffusion.SketchFragment as ReactionDiffusionSketchFragment
 import net.muniere.sketchbook.orb.sortVision.SketchFragment as SortVisionSketchFragment
 import net.muniere.sketchbook.orb.sortVision.SketchMode as SortVisionSketchMode
@@ -305,6 +304,15 @@ public sealed class SketchSeed(
     caption = "Fourier Transform with Complex Numbers",
   ) {
     override fun inflate() = FourierTransformSketchFragment.newInstance(FourierTransformSketchMode.COMPLEX)
+  }
+
+  public final object RayCasting : SketchSeed(
+    id = "146",
+    icon = Icons.Outlined.Sensors,
+    title = "Ray Casting",
+    caption = "Ray Casting",
+  ) {
+    override fun inflate() = RaycastingSketchFragment()
   }
 
   public final object BezierCurve : SketchSeed(
